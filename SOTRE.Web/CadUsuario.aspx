@@ -4,6 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>
+        Cadastro de Usuário</h1>
     <table cellpadding="5px" cellspacing="5px">
         <tr valign="middle" align="center">
             <td colspan="2">
@@ -46,8 +48,7 @@
         </tr>
         <tr>
             <td align="right">
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" 
-                    onclick="btnVoltar_Click" />
+                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
             </td>
             <td align="right">
                 <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
