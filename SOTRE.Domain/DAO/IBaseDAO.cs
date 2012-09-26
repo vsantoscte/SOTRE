@@ -6,7 +6,7 @@ using System.Data.Linq;
 
 namespace SOTRE.Domain
 {
-    public interface IBaseDAO<T>
+    internal interface IBaseDAO<T> where T : class
     {
         void Inserir(T entidade, DataContext dataContext);
 
@@ -16,6 +16,6 @@ namespace SOTRE.Domain
 
         T ObterPorID(int ID, DataContext dataContext);
 
-        IList<T> ObterTodos(DataContext dataContext);
+        IQueryable<T> ObterTodos(DataContext dataContext);
     }
 }
