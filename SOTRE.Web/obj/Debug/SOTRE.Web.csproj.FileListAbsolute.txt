@@ -1,0 +1,28 @@
+C:\Projeto\SOTRE\SOTRE.Web\bin\SOTRE.Web.dll
+C:\Projeto\SOTRE\SOTRE.Web\bin\SOTRE.Web.pdb
+C:\Projeto\SOTRE\SOTRE.Web\bin\SOTRE.Domain.dll
+C:\Projeto\SOTRE\SOTRE.Web\bin\SOTRE.Domain.pdb
+C:\Projeto\SOTRE\SOTRE.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Projeto\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.dll
+C:\Projeto\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.pdb
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.dll
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.pdb
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.dll
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.pdb
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.dll
+C:\Users\victor.ledo\Dropbox\TCC\LInq\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.pdb
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.dll
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.pdb
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.dll
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.pdb
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.dll
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.pdb
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.dll
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Web.pdb
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.dll
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\bin\SOTRE.Domain.pdb
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.dll
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.pdb

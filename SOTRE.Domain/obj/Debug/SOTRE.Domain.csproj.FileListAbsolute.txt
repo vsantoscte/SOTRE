@@ -1,0 +1,13 @@
+C:\Projeto\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll.config
+C:\Projeto\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll
+C:\Projeto\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.pdb
+C:\Projeto\SOTRE\SOTRE.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Projeto\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.dll
+C:\Projeto\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.pdb
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll.config
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.pdb
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.dll
+C:\Users\victor.ledo\Desktop\SOTRE\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.pdb
+C:\Users\Ana Lis\Desktop\SOTRE\SOTRE\SOTRE\SOTRE.Domain\obj\Debug\ResolveAssemblyReference.cache

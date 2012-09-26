@@ -1,0 +1,68 @@
+﻿body
+{
+	margin: 0;
+	padding: 0;
+	border: none;
+	font: 11px/1.5 Century;
+	background: #FFFFFF;
+	color: #000000;
+	text-align: center;
+}
+
+#tudo
+{
+	width: 800px;
+	margin: 0 auto;
+}
+
+body#duascolunas #apoio
+{
+	display: none;
+}
+
+body#duascolunas #principal
+{
+	width: 645px;
+	border-right-width: 0;
+	padding-right: 0;
+}
+
+
+#topo
+{
+	height: 100px;
+	border-bottom: 1px solid #c30;
+	border-bottom-color: #000000;
+	background-color: #808080;
+}
+
+
+#principal
+{
+	float: left;
+	margin-left: 10px;
+	text-align: justify;
+	border-width: 0 0px;
+	padding: 5px;
+	overflow: auto;
+}
+
+#centro
+{
+    width:800px;
+}
+
+
+#rodape
+{
+	padding: 0px;
+	clear: both;
+	text-align: center;
+	height: 30px;
+	border-top: 1px #c30;
+	border-top-color: #000000;
+	border-top-style: dashed;
+	background-color: #C0C0C0;
+}
+
+

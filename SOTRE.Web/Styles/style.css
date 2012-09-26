@@ -1,0 +1,120 @@
+﻿body
+{
+	margin: 0;
+	padding: 0;
+	border: none;
+	font: 11px/1.5 Century;
+	background: #FFFFFF;
+	color: #000000;
+	text-align: center;
+}
+
+#tudo
+{
+	width: 800px;
+	margin: 0 auto;
+}
+
+#topo
+{
+	height: 100px;
+	border-bottom: 1px solid #c30;
+	border-bottom-color: #000000;
+	background-color: #808080;
+}
+
+
+#principal
+{
+	float: left;
+	margin-left: 10px;
+	text-align: justify;
+	border-width: 0 0px;
+	padding: 5px;
+	overflow: auto;
+}
+
+#nav
+{
+	width: 140px;
+	float: left;
+}
+
+/* Menu */
+
+ul#menuGeral
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	list-style: none;
+	color: #000000;
+}
+ul#menuGeral li
+{
+}
+/*-Para todos os atributos 'a', aqui será a marcação da sanfona-*/
+ul#menuGeral a
+{
+	display: block;
+	padding: 1px;
+	cursor: pointer;
+	color: #000;
+	text-decoration: none;
+}
+/*-Para todos os atributos 'a' dentro de uma 'li'-*/
+ul#menuGeral li a
+{
+	background-color: #000000;
+	border: 1px solid #D4D4D4;
+	margin-bottom: 1px;
+	color: #FFFFFF;
+}
+ul#menuGeral li a:hover
+{
+	background-color: #0000FF;
+}
+/*-O conteudo que fica debaixo da opção da sanfona-*/
+ul#menuGeral .conteudoMenu
+{
+	padding: 5px;
+	text-align:left;
+	background-color: #333333;
+}
+ul#menuGeral .conteudoMenu a
+{
+	background-color: #666666;
+	margin-bottom: 0px;
+	border: 0px;
+}
+ul#menuGeral .conteudoMenu a:hover
+{
+	background-color: #333333;
+}
+
+body#duascolunas #apoio
+{
+	display: none;
+}
+
+body#duascolunas #principal
+{
+	width: 645px;
+	border-right-width: 0;
+	padding-right: 0;
+}
+
+#rodape
+{
+	padding: 0px;
+	clear: both;
+	text-align: center;
+	height: 30px;
+	border-top: 1px #c30;
+	border-top-color: #000000;
+	border-top-style: dashed;
+	background-color: #C0C0C0;
+}
+
+

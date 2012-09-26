@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTRE.Web", "SOTRE.Web\SOTRE.Web.csproj", "{550F2232-7297-4369-A2CA-66B8735BDE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTRE.Domain", "SOTRE.Domain\SOTRE.Domain.csproj", "{80221D6B-5EBF-439F-AF24-19E1E63C4E85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{550F2232-7297-4369-A2CA-66B8735BDE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550F2232-7297-4369-A2CA-66B8735BDE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550F2232-7297-4369-A2CA-66B8735BDE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550F2232-7297-4369-A2CA-66B8735BDE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
