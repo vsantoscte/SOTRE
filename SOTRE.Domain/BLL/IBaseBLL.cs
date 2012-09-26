@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
 
 namespace SOTRE.Domain
 {
-    public interface IBaseDAO<T>
+    public interface IBaseBLL<T> where T : class
     {
         void Inserir(T entidade);
 
@@ -13,7 +14,7 @@ namespace SOTRE.Domain
 
         void Excluir(int ID);
 
-        T ObterPorID<T>(int ID);
+        T ObterPorID(int ID);
 
         IQueryable<T> ObterTodos();
     }
