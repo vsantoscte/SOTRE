@@ -17,9 +17,9 @@ C:\Users\paulo.sena\Documents\GitHub\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.d
 C:\Users\paulo.sena\Documents\GitHub\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.pdb
 C:\Users\paulo.sena\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.dll
 C:\Users\paulo.sena\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.pdb
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll.config
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.dll
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\bin\Debug\SOTRE.Domain.pdb
-C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.dll
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Domain\obj\Debug\SOTRE.Domain.pdb

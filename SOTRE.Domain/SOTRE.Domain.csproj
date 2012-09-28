@@ -50,13 +50,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="SOTREContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SOTREContext.dbml</DependentUpon>
     </Compile>
-    <Compile Include="BLL\UsuarioBLL.cs" />
-    <Compile Include="DAO\UsuarioDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
