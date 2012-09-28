@@ -56,49 +56,49 @@
         <elementListCompartment Id="dd1982e9-cc55-4a33-a500-8f08468bd885" absoluteBounds="6.765, 8.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 5.79970540364583); (1.75 : 6.59780160677083); (2.19791916666667 : 6.59780160677083 : JumpStart); (2.36458583333333 : 6.59780160677083 : JumpEnd); (3.5 : 6.59780160677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 5.79970540364583); (1.75 : 6.59780160677083); (3.5 : 6.59780160677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Caminho" />
       <nodes>
         <classShapeMoniker Id="a9156fbd-88b3-4480-a899-577a28b775d4" />
         <classShapeMoniker Id="3f995a3c-77e6-4742-aa4c-20da5554bde9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 5.79970540364583); (2.2812525 : 7.02810170833333); (3.5 : 7.02810170833333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.2812525 : 5.79970540364583); (2.2812525 : 7.02810170833333); (3.5 : 7.02810170833333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Caminho1" />
       <nodes>
         <classShapeMoniker Id="a9156fbd-88b3-4480-a899-577a28b775d4" />
         <classShapeMoniker Id="3f995a3c-77e6-4742-aa4c-20da5554bde9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.31814697265625); (6.25 : 3.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 3.31814697265625); (6.25 : 3.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Pedido/Pedido_Demanda" />
       <nodes>
         <classShapeMoniker Id="b38080da-d232-43d7-8a4e-5c9dc39484e0" />
         <classShapeMoniker Id="bd72f74d-31d6-481d-a161-e8a4d6c10059" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.44314697265625); (3.5 : 3.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.44314697265625); (3.5 : 3.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Pedido" />
       <nodes>
         <classShapeMoniker Id="a9156fbd-88b3-4480-a899-577a28b775d4" />
         <classShapeMoniker Id="b38080da-d232-43d7-8a4e-5c9dc39484e0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 10.0521468098958); (6.46875 : 10.0521468098958); (6.46875 : 4.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 10.0521468098958); (6.46875 : 10.0521468098958); (6.46875 : 4.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Produto/Produto_Demanda" />
       <nodes>
         <classShapeMoniker Id="3eeffe13-c44d-427a-9c18-35fe2ba9e78e" />
         <classShapeMoniker Id="bd72f74d-31d6-481d-a161-e8a4d6c10059" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Tab_Tipo_Status/Tab_Tipo_Status_Pedido" />
       <nodes>
         <classShapeMoniker Id="dd7af3ac-73ec-4c79-9a8c-6afdb1cd467e" />
         <classShapeMoniker Id="b38080da-d232-43d7-8a4e-5c9dc39484e0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 5.97199625651042); (9.5 : 5.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 5.97199625651042); (9.5 : 5.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Tab_Tipo_Status_Veiculo/Tab_Tipo_Status_Veiculo_Veiculo" />
       <nodes>
         <classShapeMoniker Id="41675277-c6e8-4614-990e-e529647e18e3" />
