@@ -1,108 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 10.5" name="SOTREContext">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.75, 10.5" name="SOTREContext">
   <DataContextMoniker Name="/SOTREDataContext" />
   <nestedChildShapes>
-    <classShape Id="1692934b-a529-4ff6-a2e5-51148918aec0" absoluteBounds="3.5, 5.625, 2, 1.7708968098958327">
+    <classShape Id="f5f1a593-ccd8-4b65-aabd-5f72fa642998" absoluteBounds="6.25, 5.625, 2, 1.7708968098958327">
       <DataClassMoniker Name="/SOTREDataContext/Caminho" />
       <nestedChildShapes>
-        <elementListCompartment Id="6d215327-51ff-46cc-87b2-9947f1d63fdf" absoluteBounds="3.515, 6.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ec5ea26f-9c24-4c44-84cb-0623982ca493" absoluteBounds="6.265, 6.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="870a5f9e-1fc7-46c5-a5c4-19d2cd12350f" absoluteBounds="0.75, 2.875, 2, 2.9247054036458322">
+    <classShape Id="11d18228-084d-4573-9db8-6842d96799e3" absoluteBounds="3.5, 3, 2, 2.732403971354167">
       <DataClassMoniker Name="/SOTREDataContext/Cliente" />
       <nestedChildShapes>
-        <elementListCompartment Id="0ff07658-739e-4f95-a175-7b91017d877f" absoluteBounds="0.765, 3.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9a9df6c4-739b-4db1-8bf8-88bb3570d385" absoluteBounds="3.515, 3.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fe74c912-75b3-4fca-a1ca-85941d075141" absoluteBounds="6.25, 2.5, 2, 1.578595377604167">
+    <classShape Id="13ac2f99-773c-4e9e-bb77-192a81d85b1d" absoluteBounds="9, 2.5, 2, 1.578595377604167">
       <DataClassMoniker Name="/SOTREDataContext/Demanda" />
       <nestedChildShapes>
-        <elementListCompartment Id="6fa35363-7fb9-40bc-8eca-a8a02ef0010b" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8ba0d5e1-00bc-47a7-bd9b-11311ef4c5b6" absoluteBounds="9.015, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6c010d70-de89-4716-a5b5-7df905ec1d4d" absoluteBounds="3.5, 2.625, 2, 1.3862939453124996">
+    <classShape Id="854a5e8d-6555-47f9-b3b7-81cacc933e1a" absoluteBounds="6.25, 2.625, 2, 1.3862939453124996">
       <DataClassMoniker Name="/SOTREDataContext/Pedido" />
       <nestedChildShapes>
-        <elementListCompartment Id="4f74c8a4-8494-44f7-84b5-6b7796305f26" absoluteBounds="3.515, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2b0b26c2-e8b1-4405-be6e-448134b411cd" absoluteBounds="6.265, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f5ada68f-4478-49e7-b3bd-b8f8d0be616d" absoluteBounds="3.5, 8.5, 2, 1.7708968098958344">
+    <classShape Id="b307ca4d-6da4-4a3d-84f9-fd39950f2d74" absoluteBounds="6.25, 8.5, 2, 1.7708968098958344">
       <DataClassMoniker Name="/SOTREDataContext/Produto" />
       <nestedChildShapes>
-        <elementListCompartment Id="e65055e4-6e4a-4e93-94d8-ae96ee90a5a4" absoluteBounds="3.515, 8.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="21b8bd2a-2c22-4fcb-8cce-898f3d66d6d8" absoluteBounds="6.265, 8.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5f80c451-690b-4aed-83a4-4191e668be64" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="4ef162c5-2482-44b3-851e-3d667522a951" absoluteBounds="3.5, 0.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/SOTREDataContext/Tab_Tipo_Status" />
       <nestedChildShapes>
-        <elementListCompartment Id="7be8423e-235b-4b33-bf36-ba792047ad20" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d63239bc-53b7-4f1c-9999-e9aeeafd98df" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="db109a96-9c79-4354-b7f3-48fd42f26305" absoluteBounds="6.75, 5.375, 2, 1.1939925130208327">
+    <classShape Id="b5e5b3ea-cb78-4e31-b3fc-b733fa8b7661" absoluteBounds="8.75, 5.375, 2, 1.1939925130208327">
       <DataClassMoniker Name="/SOTREDataContext/Tab_Tipo_Status_Veiculo" />
       <nestedChildShapes>
-        <elementListCompartment Id="d7245c15-4466-4920-ac39-9625b74bb67f" absoluteBounds="6.765, 5.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aa2f0096-79d6-4603-b46d-18cdb2e9932b" absoluteBounds="8.765, 5.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4a62f379-9b4e-400d-9777-3d303f6102a5" absoluteBounds="6.75, 8, 2, 1.7708968098958327">
+    <classShape Id="e9b2c9c5-d2a1-45e6-9b31-a2d5ed6b0117" absoluteBounds="0.75, 3.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/SOTREDataContext/Tipo_Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16bd71b0-e120-492e-b0b8-80b9920c3c18" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6a72ebd-bcac-41bb-b537-28f172534fc0" absoluteBounds="0.75, 7, 2, 1.7708968098958327">
       <DataClassMoniker Name="/SOTREDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="e2532699-fe98-440c-9137-9591b5d148ed" absoluteBounds="6.765, 8.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c50dc347-e371-4bd5-8fda-48ee850b5766" absoluteBounds="0.765, 7.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c0758b2f-09fd-4237-9ce8-2dbeb20c9b90" absoluteBounds="9.5, 5.125, 2, 1.5785953776041666">
+    <classShape Id="7be6c85b-fc1b-46e5-ac3d-1e374a400fb5" absoluteBounds="11.5, 5.125, 2, 1.5785953776041666">
       <DataClassMoniker Name="/SOTREDataContext/Veiculo" />
       <nestedChildShapes>
-        <elementListCompartment Id="2435cf57-ab30-44a6-9d9a-5e63ccd4ae96" absoluteBounds="9.515, 5.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="42656188-a6b2-43ea-ba1f-8caa32187184" absoluteBounds="11.515, 5.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 5.79970540364583); (1.75 : 6.59780160677083); (2.19791916666667 : 6.59780160677083 : JumpStart); (2.36458583333333 : 6.59780160677083 : JumpEnd); (3.5 : 6.59780160677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 5.73240397135417); (4.5 : 6.564150890625); (6.25 : 6.564150890625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Caminho" />
       <nodes>
-        <classShapeMoniker Id="870a5f9e-1fc7-46c5-a5c4-19d2cd12350f" />
-        <classShapeMoniker Id="1692934b-a529-4ff6-a2e5-51148918aec0" />
+        <classShapeMoniker Id="11d18228-084d-4573-9db8-6842d96799e3" />
+        <classShapeMoniker Id="f5f1a593-ccd8-4b65-aabd-5f72fa642998" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 5.79970540364583); (2.2812525 : 7.02810170833333); (3.5 : 7.02810170833333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.0312525 : 5.73240397135417); (5.0312525 : 7.01127635026042); (6.25 : 7.01127635026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Caminho1" />
       <nodes>
-        <classShapeMoniker Id="870a5f9e-1fc7-46c5-a5c4-19d2cd12350f" />
-        <classShapeMoniker Id="1692934b-a529-4ff6-a2e5-51148918aec0" />
+        <classShapeMoniker Id="11d18228-084d-4573-9db8-6842d96799e3" />
+        <classShapeMoniker Id="f5f1a593-ccd8-4b65-aabd-5f72fa642998" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.31814697265625); (6.25 : 3.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 3.31814697265625); (9 : 3.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Pedido/Pedido_Demanda" />
       <nodes>
-        <classShapeMoniker Id="6c010d70-de89-4716-a5b5-7df905ec1d4d" />
-        <classShapeMoniker Id="fe74c912-75b3-4fca-a1ca-85941d075141" />
+        <classShapeMoniker Id="854a5e8d-6555-47f9-b3b7-81cacc933e1a" />
+        <classShapeMoniker Id="13ac2f99-773c-4e9e-bb77-192a81d85b1d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.44314697265625); (3.5 : 3.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 3.50564697265625); (6.25 : 3.50564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Cliente/Cliente_Pedido" />
       <nodes>
-        <classShapeMoniker Id="870a5f9e-1fc7-46c5-a5c4-19d2cd12350f" />
-        <classShapeMoniker Id="6c010d70-de89-4716-a5b5-7df905ec1d4d" />
+        <classShapeMoniker Id="11d18228-084d-4573-9db8-6842d96799e3" />
+        <classShapeMoniker Id="854a5e8d-6555-47f9-b3b7-81cacc933e1a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 10.0521468098958); (6.46875 : 10.0521468098958); (6.46875 : 4.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 9.38544840494792); (10.90625 : 9.38544840494792); (10.90625 : 4.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Produto/Produto_Demanda" />
       <nodes>
-        <classShapeMoniker Id="f5ada68f-4478-49e7-b3bd-b8f8d0be616d" />
-        <classShapeMoniker Id="fe74c912-75b3-4fca-a1ca-85941d075141" />
+        <classShapeMoniker Id="b307ca4d-6da4-4a3d-84f9-fd39950f2d74" />
+        <classShapeMoniker Id="13ac2f99-773c-4e9e-bb77-192a81d85b1d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 1.34699625651042); (7.25 : 1.34699625651042); (7.25 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Tab_Tipo_Status/Tab_Tipo_Status_Pedido" />
       <nodes>
-        <classShapeMoniker Id="5f80c451-690b-4aed-83a4-4191e668be64" />
-        <classShapeMoniker Id="6c010d70-de89-4716-a5b5-7df905ec1d4d" />
+        <classShapeMoniker Id="4ef162c5-2482-44b3-851e-3d667522a951" />
+        <classShapeMoniker Id="854a5e8d-6555-47f9-b3b7-81cacc933e1a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 5.97199625651042); (9.5 : 5.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 4.34699625651042); (3.5 : 4.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SOTREDataContext/Tipo_Cliente/Tipo_Cliente_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="e9b2c9c5-d2a1-45e6-9b31-a2d5ed6b0117" />
+        <classShapeMoniker Id="11d18228-084d-4573-9db8-6842d96799e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 5.97199625651042); (10.8229166666667 : 5.97199625651042 : JumpStart); (10.9895833333333 : 5.97199625651042 : JumpEnd); (11.5 : 5.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SOTREDataContext/Tab_Tipo_Status_Veiculo/Tab_Tipo_Status_Veiculo_Veiculo" />
       <nodes>
-        <classShapeMoniker Id="db109a96-9c79-4354-b7f3-48fd42f26305" />
-        <classShapeMoniker Id="c0758b2f-09fd-4237-9ce8-2dbeb20c9b90" />
+        <classShapeMoniker Id="b5e5b3ea-cb78-4e31-b3fc-b733fa8b7661" />
+        <classShapeMoniker Id="7be6c85b-fc1b-46e5-ac3d-1e374a400fb5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

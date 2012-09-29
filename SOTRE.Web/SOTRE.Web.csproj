@@ -54,6 +54,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="CadCliente.aspx" />
     <Content Include="CadUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imgs\add.png" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadCliente.aspx.cs">
+      <DependentUpon>CadCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadCliente.aspx.designer.cs">
+      <DependentUpon>CadCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="CadUsuario.aspx.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
@@ -168,6 +176,10 @@
     <ProjectReference Include="..\SOTRE.Domain\SOTRE.Domain.csproj">
       <Project>{80221D6B-5EBF-439F-AF24-19E1E63C4E85}</Project>
       <Name>SOTRE.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOTRE.Util\SOTRE.Util.csproj">
+      <Project>{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}</Project>
+      <Name>SOTRE.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -38,6 +38,7 @@
                 <li><a href="#" class="itemMenu">CADASTRO</a>
                     <div class="conteudoMenu">
                         <a href="PesqUsuario.aspx">Usuário</a>
+                        <a href="PesqCliente.aspx">Clientes</a>
                     </div>
                 </li>
                 <li><a href="#" class="itemMenu">Gerenciar </a>

@@ -57,7 +57,9 @@ namespace SOTRE.Web
             {
                 UsuarioBLL.Inserir(usuario);
             }
-            
+
+            Response.Redirect("PesqUsuario.aspx");
+
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)

@@ -46,11 +46,13 @@ namespace SOTRE.Domain
         /// <param name="dataContext">Conntexto</param>
         public void Atualizar(T entidade, DataContext dataContext)
         {
-            using (dataContext)
+            try
+            {
+                using (dataContext)
             {
                 Table<T> tabela = dataContext.GetTable<T>();
 
-                T original = tabela.FirstOrDefault(e => e.ToString() == entidade.ToString());
+                T original = tabela.FirstOrDefault(e => e == entidade);
 
                 if (original != null)
                 {
@@ -85,7 +87,12 @@ namespace SOTRE.Domain
                 }
 
                 dataContext.SubmitChanges();
-                dataContext.Dispose();
+            }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
@@ -97,34 +104,22 @@ namespace SOTRE.Domain
         /// <param name="dataContext">Conntexto</param>
         public void Excluir(T entidade, DataContext dataContext)
         {
-
             try
             {
-                Type tType = entidade.GetType();
-                Object newObj = Activator.CreateInstance(tType, new object[0]);
-
-                PropertyDescriptorCollection originalProps = TypeDescriptor.GetProperties(entidade);
-
-                foreach (PropertyDescriptor currentProp in originalProps)
-                {
-                    if (currentProp.Attributes[typeof(System.Data.Linq.Mapping.ColumnAttribute)] != null)
-                    {
-                        object val = currentProp.GetValue(entidade);
-                        currentProp.SetValue(newObj, val);
-                    }
-                }
-
                 using (dataContext)
                 {
-                    Table<T> table = dataContext.GetTable<T>();
-
-                    table.Attach((T)newObj, true);
-                    table.DeleteOnSubmit((T)newObj);
-                    dataContext.SubmitChanges();
+                    Table<T> tabela = dataContext.GetTable<T>();
+                    T original = tabela.FirstOrDefault(e => e == entidade);
+                    if (original != null)
+                    {
+                        tabela.DeleteOnSubmit(original);
+                        dataContext.SubmitChanges();
+                    }
                 }
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -147,13 +142,13 @@ namespace SOTRE.Domain
                     MetaModel modelMap = tabela.Context.Mapping;
                     ReadOnlyCollection<MetaDataMember> dataMembers = modelMap.GetMetaType(typeof(T)).DataMembers;
 
-                    string id = (dataMembers.Single<MetaDataMember>(m => m.IsPrimaryKey)).Name;
+                    string pk = (dataMembers.Single<MetaDataMember>(m => m.IsPrimaryKey)).Name;
 
                     return tabela.SingleOrDefault<T>(delegate(T t)
                     {
-                        String membroID = t.GetType().GetProperty(id).GetValue(t, null).ToString();
+                        String membroID = t.GetType().GetProperty(pk).GetValue(t, null).ToString();
 
-                        return membroID.ToString() == id.ToString();
+                        return membroID.ToString() == ID.ToString();
                     });
                 }
 

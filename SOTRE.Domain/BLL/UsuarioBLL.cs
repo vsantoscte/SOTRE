@@ -29,7 +29,7 @@ namespace SOTRE.Domain
         public void Excluir(int ID)
         {
             Usuario entidade = this.ObterPorID(ID);
-            usuarioDAO.Excluir(entidade, context);
+            usuarioDAO.Excluir(entidade, context = new SOTREDataContext());
         }
 
         public Usuario ObterPorID(int ID)

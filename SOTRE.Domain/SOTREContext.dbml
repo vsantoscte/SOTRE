@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SOTRE" Class="SOTREDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=Tiago-PC\SQLEXPRESS;Initial Catalog=SOTRE;Integrated Security=True" SettingsObjectName="SOTRE.Domain.Properties.Settings" SettingsPropertyName="tempdbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=SOTRE;Integrated Security=True" SettingsObjectName="SOTRE.Domain.Properties.Settings" SettingsPropertyName="SOTREConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Caminho" Member="Caminhos">
     <Type Name="Caminho">
       <Column Name="id_caminho" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -23,10 +23,10 @@
       <Column Name="cd_tipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nm_cpf_cnpj" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="nm_cidade" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="id_estado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Cliente_Caminho" Member="Caminhos" ThisKey="id_cliente" OtherKey="cd_partida" Type="Caminho" />
       <Association Name="Cliente_Caminho1" Member="Caminhos1" ThisKey="id_cliente" OtherKey="cd_destino" Type="Caminho" />
       <Association Name="Cliente_Pedido" Member="Pedidos" ThisKey="id_cliente" OtherKey="cd_cliente" Type="Pedido" />
+      <Association Name="Tipo_Cliente_Cliente" Member="Tipo_Cliente" ThisKey="cd_tipo" OtherKey="id_tipo" Type="Tipo_Cliente" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Demanda" Member="Demandas">
@@ -71,6 +71,13 @@
       <Column Name="id_status" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="nm_descricao" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="Tab_Tipo_Status_Veiculo_Veiculo" Member="Veiculos" ThisKey="id_status" OtherKey="cd_status" Type="Veiculo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tipo_Cliente" Member="Tipo_Clientes">
+    <Type Name="Tipo_Cliente">
+      <Column Name="id_tipo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nm_descricao_tipo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Tipo_Cliente_Cliente" Member="Clientes" ThisKey="id_tipo" OtherKey="cd_tipo" Type="Cliente" />
     </Type>
   </Table>
   <Table Name="dbo.Usuario" Member="Usuarios">
