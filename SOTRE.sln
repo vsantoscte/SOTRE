@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTRE.Web", "SOTRE.Web\SOTR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTRE.Domain", "SOTRE.Domain\SOTRE.Domain.csproj", "{80221D6B-5EBF-439F-AF24-19E1E63C4E85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTRE.Util", "SOTRE.Util\SOTRE.Util.csproj", "{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80221D6B-5EBF-439F-AF24-19E1E63C4E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

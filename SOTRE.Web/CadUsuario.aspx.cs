@@ -30,7 +30,7 @@ namespace SOTRE.Web
 
         private void CarregarTela(int ID)
         {
-            Usuario usuario = new UsuarioDAO().ObterPorID(ID);
+            Usuario usuario = new UsuarioBLL().ObterPorID(ID);
 
             this.txtNome.Text = usuario.nm_nome;
             this.txtCpf.Text = usuario.nm_cpf;
@@ -41,7 +41,7 @@ namespace SOTRE.Web
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuarioBLL UsuarioBLL = new UsuarioBLL();
 
             usuario.nm_nome = this.txtNome.Text;
             usuario.nm_login = this.txtCadLogin.Text;
@@ -51,12 +51,15 @@ namespace SOTRE.Web
             if (this.Session["ID"] != null)
             {
                 usuario.id_usuario = int.Parse(this.Session["ID"].ToString());
-                usuarioDAO.Atualizar(usuario);
+                UsuarioBLL.Atualizar(usuario);
             }
             else
             {
-                usuarioDAO.Inserir(usuario);
+                UsuarioBLL.Inserir(usuario);
             }
+
+            Response.Redirect("PesqUsuario.aspx");
+
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)

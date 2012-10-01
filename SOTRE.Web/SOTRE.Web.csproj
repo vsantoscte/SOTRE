@@ -54,6 +54,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="CadCliente.aspx" />
     <Content Include="CadUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imgs\add.png" />
@@ -62,6 +63,8 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="PesqCliente.aspx" />
+    <Content Include="PesqPedido.aspx" />
     <Content Include="PesqUsuario.aspx" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\style.css" />
@@ -103,6 +106,13 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CadCliente.aspx.cs">
+      <DependentUpon>CadCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadCliente.aspx.designer.cs">
+      <DependentUpon>CadCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CadUsuario.aspx.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,6 +144,20 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PesqCliente.aspx.cs">
+      <DependentUpon>PesqCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesqCliente.aspx.designer.cs">
+      <DependentUpon>PesqCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PesqPedido.aspx.cs">
+      <DependentUpon>PesqPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesqPedido.aspx.designer.cs">
+      <DependentUpon>PesqPedido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PesqUsuario.aspx.cs">
       <DependentUpon>PesqUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +184,10 @@
     <ProjectReference Include="..\SOTRE.Domain\SOTRE.Domain.csproj">
       <Project>{80221D6B-5EBF-439F-AF24-19E1E63C4E85}</Project>
       <Name>SOTRE.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOTRE.Util\SOTRE.Util.csproj">
+      <Project>{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}</Project>
+      <Name>SOTRE.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -23,14 +23,14 @@ namespace SOS.Web
         protected void loginSOTRE_Authenticate(object sender, AuthenticateEventArgs e)
         {
             Usuario usuario = new Usuario();
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuarioBLL UsuarioBLL = new UsuarioBLL();
 
             usuario.nm_login = loginSOTRE.UserName;
             usuario.nm_senha = loginSOTRE.Password;
 
-            usuario = usuarioDAO.UsuarioAutenticar(usuario);
-            
-            if (usuario != null)
+            Boolean autenticar = UsuarioBLL.UsuarioAutenticar(usuario);
+
+            if (autenticar)
             {
                 e.Authenticated = true;
                 FormsAuthentication.RedirectFromLoginPage(loginSOTRE.UserName, false);

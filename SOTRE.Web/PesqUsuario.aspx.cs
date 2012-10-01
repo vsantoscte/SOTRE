@@ -18,7 +18,7 @@ namespace SOTRE.Web.Cadastro
 
         private void CarregarDados()
         {
-            IQueryable<Usuario> query = new UsuarioDAO().ObterTodos();
+            IQueryable<Usuario> query = new UsuarioBLL().ObterTodos();
 
             grvUsuario.DataSource = (from q in query select new { ID = q.id_usuario, nome = q.nm_nome, cpf = q.nm_cpf, login = q.nm_login }).OrderBy(q => q.nome);
 
@@ -29,9 +29,9 @@ namespace SOTRE.Web.Cadastro
 
         protected void imgDeletar_Click(object sender, ImageClickEventArgs e)
         {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuarioBLL UsuarioBLL = new UsuarioBLL();
 
-            usuarioDAO.Excluir(int.Parse(((ImageButton)sender).CommandArgument));
+            UsuarioBLL.Excluir(int.Parse(((ImageButton)sender).CommandArgument));
 
             this.CarregarDados();
         }

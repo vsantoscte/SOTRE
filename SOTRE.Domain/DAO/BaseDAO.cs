@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace SOTRE.Domain
 {
-    public abstract class BaseDAO<T> : IBaseDAO<T>
+    internal class BaseDAO<T> : IBaseDAO<T> where T : class
     {
         #region Membros de IBaseDAO<T>
 
@@ -26,7 +26,8 @@ namespace SOTRE.Domain
             {
                 using (dataContext)
                 {
-                    dataContext.GetTable<T>().InsertAllOnSubmit<T>(entidade); 
+                    Table<T> table = dataContext.GetTable<T>();
+                    table.InsertOnSubmit(entidade);
                     dataContext.SubmitChanges();
                 }
             }
@@ -43,12 +44,16 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="entidade">Objeto a ser Atualizado no Banco</param>
         /// <param name="dataContext">Conntexto</param>
-        public void Atualizar(T entidade, DataContext dataContext) 
+        public void Atualizar(T entidade, DataContext dataContext)
         {
-            using (dataContext)
+            try
             {
-                Table<T> tabela = dataContext.GetTable<T>;
-                T original = tabela.FirstOrDefault(e => e.ToString() == entidade.ToString());
+                using (dataContext)
+            {
+                Table<T> tabela = dataContext.GetTable<T>();
+
+                T original = tabela.FirstOrDefault(e => e == entidade);
+
                 if (original != null)
                 {
                     var model = new AttributeMappingSource().GetModel(dataContext.GetType());
@@ -80,9 +85,14 @@ namespace SOTRE.Domain
                         }
                     }
                 }
+
                 dataContext.SubmitChanges();
-                dataContext.Dispose();
-                return original;
+            }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
@@ -92,35 +102,24 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="entidade">Objeto a ser Excluido</param>
         /// <param name="dataContext">Conntexto</param>
-        public void Excluir(T entidade, DataContext dataContext) 
+        public void Excluir(T entidade, DataContext dataContext)
         {
-
             try
             {
-                Type tType = entidade.GetType();
-                Object newObj = Activator.CreateInstance(tType, new object[0]);
-
-                PropertyDescriptorCollection originalProps = TypeDescriptor.GetProperties(entidade);
-
-                foreach (PropertyDescriptor currentProp in originalProps)
-                {
-                    if (currentProp.Attributes[typeof(System.Data.Linq.Mapping.ColumnAttribute)] != null)
-                    {
-                        object val = currentProp.GetValue(entidade);
-                        currentProp.SetValue(newObj, val);
-                    }
-                }
-
                 using (dataContext)
                 {
-                    var table = dataContext.GetTable<T>();
-                    table.Attach((T)newObj, true);
-                    table.DeleteOnSubmit((T)newObj);
-                    dataContext.SubmitChanges();
+                    Table<T> tabela = dataContext.GetTable<T>();
+                    T original = tabela.FirstOrDefault(e => e == entidade);
+                    if (original != null)
+                    {
+                        tabela.DeleteOnSubmit(original);
+                        dataContext.SubmitChanges();
+                    }
                 }
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -132,24 +131,24 @@ namespace SOTRE.Domain
         /// <param name="ID">ID do Objeto usado como filtro</param>
         /// <param name="dataContext">Conntexto</param>
         /// <returns>Objeto com ID</returns>
-        public T ObterPorID(int ID, DataContext dataContext) 
+        public T ObterPorID(int ID, DataContext dataContext)
         {
             try
             {
                 using (dataContext)
                 {
-                    var tabela = dataContext.GetType<T>();
+                    var tabela = dataContext.GetTable<T>();
 
                     MetaModel modelMap = tabela.Context.Mapping;
                     ReadOnlyCollection<MetaDataMember> dataMembers = modelMap.GetMetaType(typeof(T)).DataMembers;
 
-                    string id = (dataMembers.Single<MetaDataMember>(m => m.IsPrimaryKey)).Name;
+                    string pk = (dataMembers.Single<MetaDataMember>(m => m.IsPrimaryKey)).Name;
 
                     return tabela.SingleOrDefault<T>(delegate(T t)
                     {
-                        String membroID = t.GetType().GetProperty(id).GetValue(t, null).ToString();
+                        String membroID = t.GetType().GetProperty(pk).GetValue(t, null).ToString();
 
-                        return membroID.ToString() == id.ToString();
+                        return membroID.ToString() == ID.ToString();
                     });
                 }
 
@@ -167,14 +166,14 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="dataContext">Contexto</param>
         /// <returns>Lista com Todos os Objetos</returns>
-        public IList<T> ObterTodos(DataContext dataContext) 
+        public IQueryable<T> ObterTodos(DataContext dataContext)
         {
             try
             {
                 using (dataContext)
                 {
                     var tabela = dataContext.GetTable<T>().ToList<T>();
-                    return tabela;
+                    return tabela.AsQueryable<T>();
                 }
             }
             catch (Exception)

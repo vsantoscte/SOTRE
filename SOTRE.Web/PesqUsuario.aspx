@@ -28,8 +28,8 @@
                     <ContentTemplate>
                         <asp:GridView ID="grvUsuario" runat="server" SkinID="SORTRE">
                             <Columns>
-                                <asp:BoundField HeaderText="Nome" DataField="nome" HeaderStyle-Width="40%" />
-                                <asp:BoundField HeaderText="CPF" DataField="cpf" HeaderStyle-Width="25%" />
+                                <asp:BoundField HeaderText="Nome" DataField="nome" HeaderStyle-Width="50%" />
+                                <asp:BoundField HeaderText="CPF" DataField="cpf" HeaderStyle-Width="20%" />
                                 <asp:BoundField HeaderText="Login" DataField="login" HeaderStyle-Width="20%" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -38,7 +38,7 @@
                                             <asp:ImageButton ID="imgDeletar" runat="server" ImageUrl="~/imgs/delete.png" OnClick="imgDeletar_Click"
                                             OnClientClick="return confirm('Deseja realmente excluir esse registro?')" CommandArgument='<%# Eval("ID") %>' />
                                     </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Right" Width="15%" />
+                                    <ItemStyle HorizontalAlign="Right" Width="10%" />
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>

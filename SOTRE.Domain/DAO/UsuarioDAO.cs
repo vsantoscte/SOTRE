@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SOTRE.Domain
 {
-    public class UsuarioDAO : BaseDAO<Usuario>, IBaseDAO<Usuario>
+    internal class UsuarioDAO : BaseDAO<Usuario> 
     {
 
         SOTREDataContext contexto = null;
@@ -20,9 +20,9 @@ namespace SOTRE.Domain
         /// </summary>
         /// <param name="entidade">Objeto com o Valor do login e senha</param>
         /// <returns>Usuario obtido como retorno da consulta</returns>
-        protected Usuario UsuarioAutenticar(Usuario entidade)
+        public Usuario UsuarioAutenticar(Usuario entidade)
         {
-            return contexto.Usuario.FirstOrDefault(q => q.nm_login == entidade.nm_login && q.nm_senha == entidade.nm_senha);
+            return contexto.Usuarios.FirstOrDefault(q => q.nm_login == entidade.nm_login && q.nm_senha == entidade.nm_senha);
         }
     }
 }
