@@ -18,7 +18,7 @@ namespace SOTRE.Domain
 
         public void Inserir(Usuario entidade)
         {
-           usuarioDAO.Inserir(entidade, context);
+            usuarioDAO.Inserir(entidade, context);
         }
 
         public void Atualizar(Usuario entidade)
@@ -48,9 +48,16 @@ namespace SOTRE.Domain
         /// </summary>
         /// <param name="entidade">Objeto com o Valor do login e senha</param>
         /// <returns>Usuario obtido como retorno da consulta</returns>
-        public Usuario UsuarioAutenticar(Usuario entidade)
+        public Boolean UsuarioAutenticar(Usuario entidade)
         {
-            return usuarioDAO.UsuarioAutenticar(entidade);
+            Usuario usuario = usuarioDAO.UsuarioAutenticar(entidade);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

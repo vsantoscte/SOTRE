@@ -64,6 +64,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="PesqCliente.aspx" />
+    <Content Include="PesqPedido.aspx" />
     <Content Include="PesqUsuario.aspx" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\style.css" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="PesqCliente.aspx.designer.cs">
       <DependentUpon>PesqCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PesqPedido.aspx.cs">
+      <DependentUpon>PesqPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesqPedido.aspx.designer.cs">
+      <DependentUpon>PesqPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="PesqUsuario.aspx.cs">
       <DependentUpon>PesqUsuario.aspx</DependentUpon>

@@ -28,9 +28,9 @@ namespace SOS.Web
             usuario.nm_login = loginSOTRE.UserName;
             usuario.nm_senha = loginSOTRE.Password;
 
-            usuario = UsuarioBLL.UsuarioAutenticar(usuario);
-            
-            if (usuario != null)
+            Boolean autenticar = UsuarioBLL.UsuarioAutenticar(usuario);
+
+            if (autenticar)
             {
                 e.Authenticated = true;
                 FormsAuthentication.RedirectFromLoginPage(loginSOTRE.UserName, false);

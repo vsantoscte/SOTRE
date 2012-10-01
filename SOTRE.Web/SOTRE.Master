@@ -39,6 +39,7 @@
                     <div class="conteudoMenu">
                         <a href="PesqUsuario.aspx">Usuário</a>
                         <a href="PesqCliente.aspx">Clientes</a>
+                        <a href="PesqPedido.aspx">Pedido</a>
                     </div>
                 </li>
                 <li><a href="#" class="itemMenu">Gerenciar </a>
