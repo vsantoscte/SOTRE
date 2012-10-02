@@ -30,5 +30,26 @@ namespace SOTRE.Util
             return lstTipoCliente;
         }
 
+        public static List<Tab_Tipo_Status_Veiculo> CarregarComboStatusVeiculo()
+        {
+            IQueryable<Tab_Tipo_Status_Veiculo> query = new StatusVeiculoBLL().ObterTodos();
+
+            List<Tab_Tipo_Status_Veiculo> lstAux = query.ToList<Tab_Tipo_Status_Veiculo>();
+            List<Tab_Tipo_Status_Veiculo> lstStatusVeiculo = new List<Tab_Tipo_Status_Veiculo>();
+
+            Tab_Tipo_Status_Veiculo tipoStatusVeiculo = new Tab_Tipo_Status_Veiculo();
+            tipoStatusVeiculo.id_status = 0;
+            tipoStatusVeiculo.nm_descricao = "";
+
+            lstStatusVeiculo.Add(tipoStatusVeiculo);
+
+            foreach (Tab_Tipo_Status_Veiculo objStatusVeiculo in lstAux)
+            {
+                lstStatusVeiculo.Add(objStatusVeiculo);
+            }
+
+            return lstStatusVeiculo;
+        }
+
     }
 }

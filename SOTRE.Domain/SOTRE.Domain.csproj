@@ -47,7 +47,9 @@
     <Compile Include="BLL\PedidoBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
     <Compile Include="BLL\StatusPedidoBLL.cs" />
+    <Compile Include="BLL\StatusVeiculoBLL.cs" />
     <Compile Include="BLL\TipoClienteBLL.cs" />
+    <Compile Include="BLL\VeiculoBLL.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\DemandaDAO.cs" />
@@ -55,7 +57,9 @@
     <Compile Include="DAO\PedidoDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\StatusPedidoDAO.cs" />
+    <Compile Include="DAO\StatusVeiculoDAO.cs" />
     <Compile Include="DAO\TipoClienteDAO.cs" />
+    <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -56,6 +56,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="CadCliente.aspx" />
     <Content Include="CadUsuario.aspx" />
+    <Content Include="CadVeiculo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imgs\add.png" />
     <Content Include="imgs\delete.png" />
@@ -66,6 +67,7 @@
     <Content Include="PesqCliente.aspx" />
     <Content Include="PesqPedido.aspx" />
     <Content Include="PesqUsuario.aspx" />
+    <Content Include="PesqVeiculo.aspx" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\styleLogin.css" />
@@ -120,6 +122,13 @@
     <Compile Include="CadUsuario.aspx.designer.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CadVeiculo.aspx.cs">
+      <DependentUpon>CadVeiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadVeiculo.aspx.designer.cs">
+      <DependentUpon>CadVeiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +173,13 @@
     </Compile>
     <Compile Include="PesqUsuario.aspx.designer.cs">
       <DependentUpon>PesqUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PesqVeiculo.aspx.cs">
+      <DependentUpon>PesqVeiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesqVeiculo.aspx.designer.cs">
+      <DependentUpon>PesqVeiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOTRE.Master.cs">
