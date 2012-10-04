@@ -31,7 +31,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Produto produto = this.ObterPorID(ID);
-            produtoDAO.Excluir(produto, contexto);
+            produtoDAO.Excluir(produto, contexto = new SOTREDataContext());
         }
 
         public Produto ObterPorID(int ID)

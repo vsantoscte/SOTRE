@@ -7,5 +7,9 @@ namespace SOTRE.Domain.DAO
 {
     internal class PedidoDAO : BaseDAO<Pedido>
     {
+        public Pedido RetornarUltimoPedido(SOTREDataContext contexto)
+        {
+            return new Pedido();
+        }
     }
 }

@@ -6,7 +6,7 @@ using SOTRE.Domain.DAO;
 
 namespace SOTRE.Domain.BLL
 {
-    public class VeiculoBLL: IBaseBLL<Veiculo>
+    public class VeiculoBLL : IBaseBLL<Veiculo>
     {
 
         VeiculoDAO veiculoDAO = null;
@@ -31,7 +31,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Veiculo veiculo = this.ObterPorID(ID);
-            veiculoDAO.Excluir(veiculo, contexto);
+            veiculoDAO.Excluir(veiculo, contexto = new SOTREDataContext());
         }
 
         public Veiculo ObterPorID(int ID)

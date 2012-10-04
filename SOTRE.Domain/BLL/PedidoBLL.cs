@@ -30,7 +30,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Pedido pedido = this.ObterPorID(ID);
-            pedidoDAO.Excluir(pedido, contexto);
+            pedidoDAO.Excluir(pedido, contexto = new SOTREDataContext());
         }
 
         public Pedido ObterPorID(int ID)
@@ -41,6 +41,15 @@ namespace SOTRE.Domain.BLL
         public IQueryable<Pedido> ObterTodos()
         {
             return pedidoDAO.ObterTodos(contexto);
+        }
+
+        public Pedido RetornarUltimoPedido()
+        {
+            if (contexto == null)
+            {
+                contexto = new SOTREDataContext();
+            }
+            return pedidoDAO.RetornarUltimoPedido(contexto);
         }
     }
 }

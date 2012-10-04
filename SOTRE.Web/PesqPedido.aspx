@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td style="width: 20px;">
-                <asp:ImageButton ID="imgAddPedido" runat="server" ImageUrl="~/imgs/add.png" />
+                <asp:ImageButton ID="imgAddPedido" runat="server" ImageUrl="~/imgs/add.png" PostBackUrl="~/CadPedido.aspx" />
             </td>
             <td align="left">
                 <h3>

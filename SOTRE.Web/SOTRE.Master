@@ -37,8 +37,8 @@
             <ul id="menuGeral">
                 <li><a href="#" class="itemMenu">CADASTRO</a>
                     <div class="conteudoMenu">
-                        <a href="PesqCliente.aspx">Clientes</a> <a href="PesqPedido.aspx">Pedido</a> <a href="PesqUsuario.aspx">
-                            Usuário</a> <a href="PesqVeiculo.aspx">Veículo</a>
+                        <a href="PesqCliente.aspx">Clientes</a> <a href="PesqPedido.aspx">Pedido</a> <a href="PesqProduto.aspx">
+                            Produto</a> <a href="PesqUsuario.aspx">Usuário</a> <a href="PesqVeiculo.aspx">Veículo</a>
                     </div>
                 </li>
                 <li><a href="#" class="itemMenu">Gerenciar </a>

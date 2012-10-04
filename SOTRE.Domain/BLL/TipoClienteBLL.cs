@@ -30,7 +30,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Tipo_Cliente tipoCliente = tipoClienteDAO.ObterPorID(ID, contexto);
-            tipoClienteDAO.Excluir(tipoCliente, contexto);
+            tipoClienteDAO.Excluir(tipoCliente, contexto = new SOTREDataContext());
         }
 
         public Tipo_Cliente ObterPorID(int ID)

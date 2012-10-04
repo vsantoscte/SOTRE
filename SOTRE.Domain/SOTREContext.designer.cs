@@ -1070,7 +1070,7 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_pedido", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_pedido", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_pedido
 		{
 			get
@@ -1292,7 +1292,7 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_produto", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_produto", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_produto
 		{
 			get
@@ -1580,7 +1580,7 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_status", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_status", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_status
 		{
 			get
@@ -1693,13 +1693,6 @@ namespace SOTRE.Domain
 			this._Clientes = new EntitySet<Cliente>(new Action<Cliente>(this.attach_Clientes), new Action<Cliente>(this.detach_Clientes));
 			OnCreated();
 		}
-
-        public Tipo_Cliente(int p, string p_2)
-        {
-            // TODO: Complete member initialization
-            this.p = p;
-            this.p_2 = p_2;
-        }
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_tipo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_tipo
@@ -1757,8 +1750,6 @@ namespace SOTRE.Domain
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
-        private int p;
-        private string p_2;
 		
 		protected virtual void SendPropertyChanging()
 		{
@@ -1983,7 +1974,7 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_veiculo", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_veiculo", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_veiculo
 		{
 			get

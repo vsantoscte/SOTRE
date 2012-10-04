@@ -55,6 +55,8 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="CadCliente.aspx" />
+    <Content Include="CadPedido.aspx" />
+    <Content Include="CadProduto.aspx" />
     <Content Include="CadUsuario.aspx" />
     <Content Include="CadVeiculo.aspx" />
     <Content Include="Global.asax" />
@@ -66,6 +68,7 @@
     <Content Include="Logout.aspx" />
     <Content Include="PesqCliente.aspx" />
     <Content Include="PesqPedido.aspx" />
+    <Content Include="PesqProduto.aspx" />
     <Content Include="PesqUsuario.aspx" />
     <Content Include="PesqVeiculo.aspx" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -114,6 +117,20 @@
     </Compile>
     <Compile Include="CadCliente.aspx.designer.cs">
       <DependentUpon>CadCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadPedido.aspx.cs">
+      <DependentUpon>CadPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadPedido.aspx.designer.cs">
+      <DependentUpon>CadPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadProduto.aspx.cs">
+      <DependentUpon>CadProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadProduto.aspx.designer.cs">
+      <DependentUpon>CadProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="CadUsuario.aspx.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
@@ -166,6 +183,13 @@
     </Compile>
     <Compile Include="PesqPedido.aspx.designer.cs">
       <DependentUpon>PesqPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PesqProduto.aspx.cs">
+      <DependentUpon>PesqProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesqProduto.aspx.designer.cs">
+      <DependentUpon>PesqProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="PesqUsuario.aspx.cs">
       <DependentUpon>PesqUsuario.aspx</DependentUpon>

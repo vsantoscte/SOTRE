@@ -31,7 +31,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Tab_Tipo_Status_Veiculo statusVeiculo = this.ObterPorID(ID);
-            statusVeiculoDAO.Excluir(statusVeiculo, contexto);
+            statusVeiculoDAO.Excluir(statusVeiculo, contexto = new SOTREDataContext());
         }
 
         public Tab_Tipo_Status_Veiculo ObterPorID(int ID)

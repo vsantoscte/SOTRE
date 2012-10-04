@@ -31,7 +31,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Demanda demanda = this.ObterPorID(ID);
-            demandaDAO.Excluir(demanda, contexto);
+            demandaDAO.Excluir(demanda, contexto = new SOTREDataContext());
         }
 
         public Demanda ObterPorID(int ID)

@@ -22,9 +22,12 @@ namespace SOTRE.Web
         private void CarregarTelaCliente()
         {
             IQueryable<Cliente> queryCliente = new ClienteBLL().ObterTodos();
+            IQueryable<Tipo_Cliente> queryTipoCliente = new TipoClienteBLL().ObterTodos();
 
             grvCliente.DataSource = (from c in queryCliente
-                                     select new { ID = c.id_cliente, cpf_cnpj = c.nm_cpf_cnpj, tipo = c.Tipo_Cliente.nm_descricao_tipo, nome = c.nm_nome, bairro = c.nm_bairro, cep = c.nm_cep });
+                                     join t in queryTipoCliente
+                                     on c.cd_tipo equals t.id_tipo
+                                     select new { ID = c.id_cliente, cpf_cnpj = c.nm_cpf_cnpj, tipo = t.nm_descricao_tipo, nome = c.nm_nome, bairro = c.nm_bairro, cep = c.nm_cep });
 
             grvCliente.DataBind();
 

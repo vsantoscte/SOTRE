@@ -21,15 +21,18 @@ namespace SOTRE.Web
 
         private void CarregarTela()
         {
-            IQueryable<Veiculo> query = new VeiculoBLL().ObterTodos();
+            IQueryable<Veiculo> queryVeiculo = new VeiculoBLL().ObterTodos();
+            IQueryable<Tab_Tipo_Status_Veiculo> queryStatus = new StatusVeiculoBLL().ObterTodos();
 
-            this.grvVeiculo.DataSource = (from q in query
+
+            this.grvVeiculo.DataSource = (from v in queryVeiculo
+                                          join t in queryStatus on v.cd_status equals t.id_status
                                           select new
                                           {
-                                              ID = q.id_veiculo,
-                                              nome = q.nm_nome,
-                                              status = q.Tab_Tipo_Status_Veiculo.nm_descricao,
-                                              capacidade = q.capacidade
+                                              ID = v.id_veiculo,
+                                              nome = v.nm_nome,
+                                              status = t.nm_descricao,
+                                              capacidade = v.capacidade
                                           });
             this.grvVeiculo.DataBind();
 
@@ -38,9 +41,9 @@ namespace SOTRE.Web
 
         protected void imgDeletar_Click(object sender, ImageClickEventArgs e)
         {
-            UsuarioBLL usuarioBLL = new UsuarioBLL();
+            VeiculoBLL veiculoBLL = new VeiculoBLL();
 
-            usuarioBLL.Excluir(int.Parse(((ImageButton)sender).CommandArgument));
+            veiculoBLL.Excluir(int.Parse(((ImageButton)sender).CommandArgument));
 
             this.CarregarTela();
         }

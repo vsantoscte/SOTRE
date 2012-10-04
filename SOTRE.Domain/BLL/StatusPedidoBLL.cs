@@ -31,7 +31,7 @@ namespace SOTRE.Domain.BLL
         public void Excluir(int ID)
         {
             Tab_Tipo_Status tipoStatus = this.ObterPorID(ID);
-            statusDAO.Excluir(tipoStatus, contexto);
+            statusDAO.Excluir(tipoStatus, contexto = new SOTREDataContext());
         }
 
         public Tab_Tipo_Status ObterPorID(int ID)
