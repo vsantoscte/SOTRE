@@ -20,11 +20,11 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="entidade">Objeto a ser Inserido no Banco</param>
         /// <param name="dataContext">Conntexto</param>
-        public void Inserir(T entidade, DataContext dataContext)
+        public void Inserir(T entidade)
         {
             try
             {
-                using (dataContext)
+                using (SOTREDataContext dataContext = new SOTREDataContext())
                 {
                     Table<T> table = dataContext.GetTable<T>();
                     table.InsertOnSubmit(entidade);
@@ -44,54 +44,54 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="entidade">Objeto a ser Atualizado no Banco</param>
         /// <param name="dataContext">Conntexto</param>
-        public void Atualizar(T entidade, DataContext dataContext)
+        public void Atualizar(T entidade)
         {
             try
             {
-                using (dataContext)
-            {
-                Table<T> tabela = dataContext.GetTable<T>();
-
-                T original = tabela.FirstOrDefault(e => e == entidade);
-
-                if (original != null)
+                using (SOTREDataContext dataContext = new SOTREDataContext())
                 {
-                    var model = new AttributeMappingSource().GetModel(dataContext.GetType());
-                    MetaTable tbl = model.GetTable(typeof(T));
-                    foreach (var dm in tbl.RowType.DataMembers)
+                    Table<T> tabela = dataContext.GetTable<T>();
+
+                    T original = tabela.FirstOrDefault(e => e == entidade);
+
+                    if (original != null)
                     {
-                        PropertyInfo p1 = original.GetType().GetProperty(dm.MappedName);
-                        PropertyInfo p2 = entidade.GetType().GetProperty(dm.MappedName);
-                        try
+                        var model = new AttributeMappingSource().GetModel(dataContext.GetType());
+                        MetaTable tbl = model.GetTable(typeof(T));
+                        foreach (var dm in tbl.RowType.DataMembers)
                         {
-                            if (p1.PropertyType.ToString() != "System.DateTime")
+                            PropertyInfo p1 = original.GetType().GetProperty(dm.MappedName);
+                            PropertyInfo p2 = entidade.GetType().GetProperty(dm.MappedName);
+                            try
                             {
-                                p1.SetValue(original, p2.GetValue(entidade, null), null);
-                            }
-                            else
-                            {
-                                string dtStr = p2.GetValue(entidade, null).ToString();
-                                DateTime dt = Convert.ToDateTime(dtStr);
-                                System.Diagnostics.Trace.WriteLine(dt.Year);
-                                if (dt.Year > 1)
+                                if (p1.PropertyType.ToString() != "System.DateTime")
                                 {
                                     p1.SetValue(original, p2.GetValue(entidade, null), null);
                                 }
+                                else
+                                {
+                                    string dtStr = p2.GetValue(entidade, null).ToString();
+                                    DateTime dt = Convert.ToDateTime(dtStr);
+                                    System.Diagnostics.Trace.WriteLine(dt.Year);
+                                    if (dt.Year > 1)
+                                    {
+                                        p1.SetValue(original, p2.GetValue(entidade, null), null);
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                System.Diagnostics.Trace.WriteLine(dm.MappedName);
                             }
                         }
-                        catch
-                        {
-                            System.Diagnostics.Trace.WriteLine(dm.MappedName);
-                        }
                     }
-                }
 
-                dataContext.SubmitChanges();
-            }
+                    dataContext.SubmitChanges();
+                }
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -102,11 +102,11 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="entidade">Objeto a ser Excluido</param>
         /// <param name="dataContext">Conntexto</param>
-        public void Excluir(T entidade, DataContext dataContext)
+        public void Excluir(T entidade)
         {
             try
             {
-                using (dataContext)
+                using (SOTREDataContext dataContext = new SOTREDataContext())
                 {
                     Table<T> tabela = dataContext.GetTable<T>();
                     T original = tabela.FirstOrDefault(e => e == entidade);
@@ -131,11 +131,11 @@ namespace SOTRE.Domain
         /// <param name="ID">ID do Objeto usado como filtro</param>
         /// <param name="dataContext">Conntexto</param>
         /// <returns>Objeto com ID</returns>
-        public T ObterPorID(int ID, DataContext dataContext)
+        public T ObterPorID(int ID)
         {
             try
             {
-                using (dataContext)
+                using (SOTREDataContext dataContext = new SOTREDataContext())
                 {
                     var tabela = dataContext.GetTable<T>();
 
@@ -166,11 +166,11 @@ namespace SOTRE.Domain
         /// <typeparam name="T">Tipagem da Classe</typeparam>
         /// <param name="dataContext">Contexto</param>
         /// <returns>Lista com Todos os Objetos</returns>
-        public IQueryable<T> ObterTodos(DataContext dataContext)
+        public IQueryable<T> ObterTodos()
         {
             try
             {
-                using (dataContext)
+                using (SOTREDataContext dataContext = new SOTREDataContext())
                 {
                     var tabela = dataContext.GetTable<T>().ToList<T>();
                     return tabela.AsQueryable<T>();

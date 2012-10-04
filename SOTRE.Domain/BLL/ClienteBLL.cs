@@ -9,39 +9,37 @@ namespace SOTRE.Domain.BLL
     public class ClienteBLL : IBaseBLL<Cliente>
     {
         ClienteDAO clienteDAO = null;
-        SOTREDataContext contexto = null;
 
         public ClienteBLL()
         {
             clienteDAO = new ClienteDAO();
-            contexto = new SOTREDataContext();
         }
 
 
         public void Inserir(Cliente entidade)
         {
-            clienteDAO.Inserir(entidade, contexto);
+            clienteDAO.Inserir(entidade);
         }
 
         public void Atualizar(Cliente entidade)
         {
-            clienteDAO.Atualizar(entidade, contexto);
+            clienteDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Cliente cliente = this.ObterPorID(ID);
-            clienteDAO.Excluir(cliente, contexto = new SOTREDataContext());
+            clienteDAO.Excluir(cliente);
         }
 
         public Cliente ObterPorID(int ID)
         {
-            return clienteDAO.ObterPorID(ID, contexto);
+            return clienteDAO.ObterPorID(ID);
         }
 
         public IQueryable<Cliente> ObterTodos()
         {
-            return clienteDAO.ObterTodos(contexto);
+            return clienteDAO.ObterTodos();
         }
     }
 }

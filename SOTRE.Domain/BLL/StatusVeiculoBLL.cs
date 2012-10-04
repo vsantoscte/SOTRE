@@ -10,38 +10,36 @@ namespace SOTRE.Domain.BLL
     {
 
         StatusVeiculoDAO statusVeiculoDAO = null;
-        SOTREDataContext contexto = null;
 
         public StatusVeiculoBLL()
         {
             statusVeiculoDAO = new StatusVeiculoDAO();
-            contexto = new SOTREDataContext();
         }
 
         public void Inserir(Tab_Tipo_Status_Veiculo entidade)
         {
-            statusVeiculoDAO.Inserir(entidade, contexto);
+            statusVeiculoDAO.Inserir(entidade);
         }
 
         public void Atualizar(Tab_Tipo_Status_Veiculo entidade)
         {
-            statusVeiculoDAO.Atualizar(entidade, contexto);
+            statusVeiculoDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Tab_Tipo_Status_Veiculo statusVeiculo = this.ObterPorID(ID);
-            statusVeiculoDAO.Excluir(statusVeiculo, contexto = new SOTREDataContext());
+            statusVeiculoDAO.Excluir(statusVeiculo);
         }
 
         public Tab_Tipo_Status_Veiculo ObterPorID(int ID)
         {
-            return statusVeiculoDAO.ObterPorID(ID, contexto);
+            return statusVeiculoDAO.ObterPorID(ID);
         }
 
         public IQueryable<Tab_Tipo_Status_Veiculo> ObterTodos()
         {
-            return statusVeiculoDAO.ObterTodos(contexto);
+            return statusVeiculoDAO.ObterTodos();
         }
     }
 }

@@ -10,38 +10,36 @@ namespace SOTRE.Domain.BLL
     {
 
         DemandaDAO demandaDAO = null;
-        SOTREDataContext contexto = null;
 
         public DemandaBLL()
         {
             demandaDAO = new DemandaDAO();
-            contexto = new SOTREDataContext();
         }
 
         public void Inserir(Demanda entidade)
         {
-            demandaDAO.Inserir(entidade, contexto);
+            demandaDAO.Inserir(entidade);
         }
 
         public void Atualizar(Demanda entidade)
         {
-            demandaDAO.Atualizar(entidade, contexto);
+            demandaDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Demanda demanda = this.ObterPorID(ID);
-            demandaDAO.Excluir(demanda, contexto = new SOTREDataContext());
+            demandaDAO.Excluir(demanda);
         }
 
         public Demanda ObterPorID(int ID)
         {
-            return demandaDAO.ObterPorID(ID, contexto);
+            return demandaDAO.ObterPorID(ID);
         }
 
         public IQueryable<Demanda> ObterTodos()
         {
-            return demandaDAO.ObterTodos(contexto);
+            return demandaDAO.ObterTodos();
         }
     }
 }

@@ -9,38 +9,36 @@ namespace SOTRE.Domain.BLL
     public class TipoClienteBLL : IBaseBLL<Tipo_Cliente>
     {
         TipoClienteDAO tipoClienteDAO = null;
-        SOTREDataContext contexto = null;
 
         public TipoClienteBLL()
         {
             tipoClienteDAO = new TipoClienteDAO();
-            contexto = new SOTREDataContext();
         }
 
         public void Inserir(Tipo_Cliente entidade)
         {
-            tipoClienteDAO.Inserir(entidade, contexto);
+            tipoClienteDAO.Inserir(entidade);
         }
 
         public void Atualizar(Tipo_Cliente entidade)
         {
-            tipoClienteDAO.Atualizar(entidade, contexto);
+            tipoClienteDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
-            Tipo_Cliente tipoCliente = tipoClienteDAO.ObterPorID(ID, contexto);
-            tipoClienteDAO.Excluir(tipoCliente, contexto = new SOTREDataContext());
+            Tipo_Cliente tipoCliente = tipoClienteDAO.ObterPorID(ID);
+            tipoClienteDAO.Excluir(tipoCliente);
         }
 
         public Tipo_Cliente ObterPorID(int ID)
         {
-            return tipoClienteDAO.ObterPorID(ID, contexto);
+            return tipoClienteDAO.ObterPorID(ID);
         }
 
         public IQueryable<Tipo_Cliente> ObterTodos()
         {
-            return tipoClienteDAO.ObterTodos(contexto);
+            return tipoClienteDAO.ObterTodos();
         }
     }
 }

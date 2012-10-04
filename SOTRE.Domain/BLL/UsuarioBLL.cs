@@ -8,38 +8,36 @@ namespace SOTRE.Domain
     public class UsuarioBLL : IBaseBLL<Usuario>
     {
         UsuarioDAO usuarioDAO = null;
-        SOTREDataContext context = null;
 
         public UsuarioBLL()
         {
             usuarioDAO = new UsuarioDAO();
-            context = new SOTREDataContext();
         }
 
         public void Inserir(Usuario entidade)
         {
-            usuarioDAO.Inserir(entidade, context);
+            usuarioDAO.Inserir(entidade);
         }
 
         public void Atualizar(Usuario entidade)
         {
-            usuarioDAO.Atualizar(entidade, context);
+            usuarioDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Usuario entidade = this.ObterPorID(ID);
-            usuarioDAO.Excluir(entidade, context = new SOTREDataContext());
+            usuarioDAO.Excluir(entidade);
         }
 
         public Usuario ObterPorID(int ID)
         {
-            return usuarioDAO.ObterPorID(ID, context);
+            return usuarioDAO.ObterPorID(ID);
         }
 
         public IQueryable<Usuario> ObterTodos()
         {
-            return usuarioDAO.ObterTodos(context);
+            return usuarioDAO.ObterTodos();
         }
 
 

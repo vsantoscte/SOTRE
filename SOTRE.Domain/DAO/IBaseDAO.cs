@@ -8,14 +8,14 @@ namespace SOTRE.Domain
 {
     internal interface IBaseDAO<T> where T : class
     {
-        void Inserir(T entidade, DataContext dataContext);
+        void Inserir(T entidade);
 
-        void Atualizar(T entidade, DataContext dataContext);
+        void Atualizar(T entidade);
 
-        void Excluir(T entidade, DataContext dataContext);
+        void Excluir(T entidade);
 
-        T ObterPorID(int ID, DataContext dataContext);
+        T ObterPorID(int ID);
 
-        IQueryable<T> ObterTodos(DataContext dataContext);
+        IQueryable<T> ObterTodos();
     }
 }

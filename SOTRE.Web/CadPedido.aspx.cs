@@ -68,7 +68,7 @@ namespace SOTRE.Web
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PesqPedido.aspx");
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
@@ -94,6 +94,8 @@ namespace SOTRE.Web
 
                 demandaBLL.Inserir(demanda);
             }
+
+            Response.Redirect("PesqPedido.aspx");
 
         }
 

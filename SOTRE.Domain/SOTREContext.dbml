@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SOTRE" Class="SOTREDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=SOTRE;Integrated Security=True" SettingsObjectName="SOTRE.Domain.Properties.Settings" SettingsPropertyName="SOTREConnectionString2" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Caminho" Member="Caminhos">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=INFO-1201725\SQLEXPRESS;Initial Catalog=SOTRE;Integrated Security=True" SettingsObjectName="SOTRE.Domain.Properties.Settings" SettingsPropertyName="SOTREConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Caminho" Member="Caminho">
     <Type Name="Caminho">
-      <Column Name="id_caminho" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_caminho" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cd_partida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_destino" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_duracao" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
@@ -11,7 +11,16 @@
       <Association Name="Cliente_Caminho1" Member="Cliente1" ThisKey="cd_destino" OtherKey="id_cliente" Type="Cliente" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Cliente" Member="Clientes">
+  <Table Name="dbo.Veiculo" Member="Veiculo">
+    <Type Name="Veiculo">
+      <Column Name="id_veiculo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cd_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nm_nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="capacidade" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Tab_Tipo_Status_Veiculo_Veiculo" Member="Tab_Tipo_Status_Veiculo" ThisKey="cd_status" OtherKey="id_status" Type="Tab_Tipo_Status_Veiculo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Cliente">
     <Type Name="Cliente">
       <Column Name="id_cliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_nome" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
@@ -23,15 +32,15 @@
       <Column Name="cd_tipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nm_cpf_cnpj" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="nm_cidade" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Cliente_Caminho" Member="Caminhos" ThisKey="id_cliente" OtherKey="cd_partida" Type="Caminho" />
-      <Association Name="Cliente_Caminho1" Member="Caminhos1" ThisKey="id_cliente" OtherKey="cd_destino" Type="Caminho" />
-      <Association Name="Cliente_Pedido" Member="Pedidos" ThisKey="id_cliente" OtherKey="cd_cliente" Type="Pedido" />
+      <Association Name="Cliente_Caminho" Member="Caminho" ThisKey="id_cliente" OtherKey="cd_partida" Type="Caminho" />
+      <Association Name="Cliente_Caminho1" Member="Caminho1" ThisKey="id_cliente" OtherKey="cd_destino" Type="Caminho" />
+      <Association Name="Cliente_Pedido" Member="Pedido" ThisKey="id_cliente" OtherKey="cd_cliente" Type="Pedido" />
       <Association Name="Tipo_Cliente_Cliente" Member="Tipo_Cliente" ThisKey="cd_tipo" OtherKey="id_tipo" Type="Tipo_Cliente" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Demanda" Member="Demandas">
+  <Table Name="dbo.Demanda" Member="Demanda">
     <Type Name="Demanda">
-      <Column Name="id_demanda" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_demanda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cd_pedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_produto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="qtd_produto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -39,63 +48,54 @@
       <Association Name="Produto_Demanda" Member="Produto" ThisKey="cd_produto" OtherKey="id_produto" Type="Produto" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Pedido" Member="Pedidos">
+  <Table Name="dbo.Pedido" Member="Pedido">
     <Type Name="Pedido">
-      <Column Name="id_pedido" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_pedido" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cd_cliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Pedido_Demanda" Member="Demandas" ThisKey="id_pedido" OtherKey="cd_pedido" Type="Demanda" />
+      <Association Name="Pedido_Demanda" Member="Demanda" ThisKey="id_pedido" OtherKey="cd_pedido" Type="Demanda" />
       <Association Name="Cliente_Pedido" Member="Cliente" ThisKey="cd_cliente" OtherKey="id_cliente" Type="Cliente" IsForeignKey="true" />
       <Association Name="Tab_Tipo_Status_Pedido" Member="Tab_Tipo_Status" ThisKey="cd_status" OtherKey="id_status" Type="Tab_Tipo_Status" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Produto" Member="Produtos">
+  <Table Name="dbo.Produto" Member="Produto">
     <Type Name="Produto">
-      <Column Name="id_produto" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_produto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_nome" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="cd_duracao_descarga" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_espaco_ocupado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nm_descricao" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="Produto_Demanda" Member="Demandas" ThisKey="id_produto" OtherKey="cd_produto" Type="Demanda" />
+      <Association Name="Produto_Demanda" Member="Demanda" ThisKey="id_produto" OtherKey="cd_produto" Type="Demanda" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_Tipo_Status" Member="Tab_Tipo_Status">
     <Type Name="Tab_Tipo_Status">
-      <Column Name="id_status" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_descricao" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Tab_Tipo_Status_Pedido" Member="Pedidos" ThisKey="id_status" OtherKey="cd_status" Type="Pedido" />
+      <Association Name="Tab_Tipo_Status_Pedido" Member="Pedido" ThisKey="id_status" OtherKey="cd_status" Type="Pedido" />
     </Type>
   </Table>
-  <Table Name="dbo.Tab_Tipo_Status_Veiculo" Member="Tab_Tipo_Status_Veiculos">
+  <Table Name="dbo.Tab_Tipo_Status_Veiculo" Member="Tab_Tipo_Status_Veiculo">
     <Type Name="Tab_Tipo_Status_Veiculo">
       <Column Name="id_status" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_descricao" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="Tab_Tipo_Status_Veiculo_Veiculo" Member="Veiculos" ThisKey="id_status" OtherKey="cd_status" Type="Veiculo" />
+      <Association Name="Tab_Tipo_Status_Veiculo_Veiculo" Member="Veiculo" ThisKey="id_status" OtherKey="cd_status" Type="Veiculo" />
     </Type>
   </Table>
-  <Table Name="dbo.Tipo_Cliente" Member="Tipo_Clientes">
+  <Table Name="dbo.Tipo_Cliente" Member="Tipo_Cliente">
     <Type Name="Tipo_Cliente">
       <Column Name="id_tipo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_descricao_tipo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="Tipo_Cliente_Cliente" Member="Clientes" ThisKey="id_tipo" OtherKey="cd_tipo" Type="Cliente" />
+      <Association Name="Tipo_Cliente_Cliente" Member="Cliente" ThisKey="id_tipo" OtherKey="cd_tipo" Type="Cliente" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuario" Member="Usuarios">
+  <Table Name="dbo.Usuario" Member="Usuario">
     <Type Name="Usuario">
       <Column Name="id_usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_cpf" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Column Name="nm_nome" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="nm_login" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="nm_senha" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Veiculo" Member="Veiculos">
-    <Type Name="Veiculo">
-      <Column Name="id_veiculo" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="cd_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nm_nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="capacidade" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Association Name="Tab_Tipo_Status_Veiculo_Veiculo" Member="Tab_Tipo_Status_Veiculo" ThisKey="cd_status" OtherKey="id_status" Type="Tab_Tipo_Status_Veiculo" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

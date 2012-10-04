@@ -9,47 +9,41 @@ namespace SOTRE.Domain.BLL
     public class PedidoBLL : IBaseBLL<Pedido>
     {
         PedidoDAO pedidoDAO = null;
-        SOTREDataContext contexto = null;
 
         public PedidoBLL()
         {
             pedidoDAO = new PedidoDAO();
-            contexto = new SOTREDataContext();
         }
 
         public void Inserir(Pedido entidade)
         {
-            pedidoDAO.Inserir(entidade, contexto);
+            pedidoDAO.Inserir(entidade);
         }
 
         public void Atualizar(Pedido entidade)
         {
-            pedidoDAO.Atualizar(entidade, contexto);
+            pedidoDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Pedido pedido = this.ObterPorID(ID);
-            pedidoDAO.Excluir(pedido, contexto = new SOTREDataContext());
+            pedidoDAO.Excluir(pedido);
         }
 
         public Pedido ObterPorID(int ID)
         {
-            return pedidoDAO.ObterPorID(ID, contexto);
+            return pedidoDAO.ObterPorID(ID);
         }
 
         public IQueryable<Pedido> ObterTodos()
         {
-            return pedidoDAO.ObterTodos(contexto);
+            return pedidoDAO.ObterTodos();
         }
 
         public Pedido RetornarUltimoPedido()
         {
-            if (contexto == null)
-            {
-                contexto = new SOTREDataContext();
-            }
-            return pedidoDAO.RetornarUltimoPedido(contexto);
+            return pedidoDAO.RetornarUltimoPedido();
         }
     }
 }

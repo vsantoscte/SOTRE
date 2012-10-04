@@ -6,42 +6,40 @@ using SOTRE.Domain.DAO;
 
 namespace SOTRE.Domain.BLL
 {
-    public class StatusPedidoBLL: IBaseBLL<Tab_Tipo_Status>
+    public class StatusPedidoBLL : IBaseBLL<Tab_Tipo_Status>
     {
 
         StatusPedidoDAO statusDAO = null;
-        SOTREDataContext contexto = null;
 
         public StatusPedidoBLL()
         {
             statusDAO = new StatusPedidoDAO();
-            contexto = new SOTREDataContext();
         }
 
         public void Inserir(Tab_Tipo_Status entidade)
         {
-            statusDAO.Inserir(entidade, contexto);
+            statusDAO.Inserir(entidade);
         }
 
         public void Atualizar(Tab_Tipo_Status entidade)
         {
-            statusDAO.Atualizar(entidade, contexto);
+            statusDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
             Tab_Tipo_Status tipoStatus = this.ObterPorID(ID);
-            statusDAO.Excluir(tipoStatus, contexto = new SOTREDataContext());
+            statusDAO.Excluir(tipoStatus);
         }
 
         public Tab_Tipo_Status ObterPorID(int ID)
         {
-            return statusDAO.ObterPorID(ID, contexto);
+            return statusDAO.ObterPorID(ID);
         }
 
         public IQueryable<Tab_Tipo_Status> ObterTodos()
         {
-            return statusDAO.ObterTodos(contexto);
+            return statusDAO.ObterTodos();
         }
     }
 }

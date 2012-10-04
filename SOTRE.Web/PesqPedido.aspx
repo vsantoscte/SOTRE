@@ -28,10 +28,24 @@
                     <ContentTemplate>
                         <asp:GridView ID="grvPedido" runat="server" SkinID="SORTRE">
                             <Columns>
+                            <asp:BoundField HeaderText="Nome Cliente" DataField="Cliente" 
+                                    HeaderStyle-Width="30%" >
+                                <HeaderStyle Width="30%" />
+                                </asp:BoundField>
+                            <asp:BoundField HeaderText="Espaço Ocupado Total(kg)" DataField="Espaco" 
+                                    HeaderStyle-Width="30%" >
+                                <HeaderStyle Width="30%" />
+                                </asp:BoundField>
+                            <asp:BoundField HeaderText="Status" DataField="Status" HeaderStyle-Width="30%" >
+                                <HeaderStyle Width="30%" />
+                                </asp:BoundField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="imgEditar" runat="server" ImageUrl="~/imgs/edit.png" />
-                                        <asp:ImageButton ID="imgDeletar" runat="server" ImageUrl="~/imgs/delete.png" OnClientClick="return confirm('Deseja realmente excluir esse registro?')" />
+                                        <asp:ImageButton ID="imgEditar" runat="server" ImageUrl="~/imgs/edit.png" 
+                                            style="margin-right: 0px" />
+                                        <asp:ImageButton ID="imgDeletar" runat="server" ImageUrl="~/imgs/delete.png" 
+                                            OnClientClick="return confirm('Deseja realmente excluir esse registro?')" 
+                                            onclick="imgDeletar_Click" CommandArgument='<%# Eval("ID") %>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Right" Width="10%" />
                                 </asp:TemplateField>
