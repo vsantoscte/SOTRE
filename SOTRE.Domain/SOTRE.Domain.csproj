@@ -68,9 +68,6 @@
     </Compile>
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="SOTREContext.cs">
-      <DependentUpon>SOTREContext.dbml</DependentUpon>
-    </Compile>
     <Compile Include="SOTREContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

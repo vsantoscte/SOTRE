@@ -17,7 +17,47 @@ namespace SOTRE.Web
             if (!IsPostBack)
             {
                 this.CarregarTela();
+
+                if (!string.IsNullOrEmpty(Request.QueryString["ID"]))
+                {
+                    this.CarregarDadosTela();
+
+                    this.Session["ID"] = int.Parse(Request.QueryString["ID"]);
+                }
+                else
+                {
+                    this.Session["ID"] = null;
+                }
             }
+        }
+
+        private void CarregarDadosTela()
+        {
+            Pedido pedido = new PedidoBLL().ObterPorID(int.Parse(Request.QueryString["ID"]));
+            List<Demanda> lstDemanda = new DemandaBLL().ObterTodos().Where(w => w.cd_pedido == pedido.id_pedido).ToList<Demanda>();
+            Produto produto = null;
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+            List<DemandaGrid> lstDemandaGrid = new List<DemandaGrid>();
+            DemandaGrid demandaGrid = null;
+
+            foreach (Demanda objDemanda in lstDemanda)
+            {
+                produto = produtoBLL.ObterPorID(objDemanda.cd_produto);
+                demandaGrid = new DemandaGrid();
+
+                demandaGrid.ID = produto.id_produto;
+                demandaGrid.Nome_Produto = produto.nm_nome;
+                demandaGrid.Quantidade = objDemanda.qtd_produto;
+
+                lstDemandaGrid.Add(demandaGrid);
+            }
+
+            this.ddlCliente.SelectedValue = pedido.cd_cliente.ToString();
+            this.ddlStatus.SelectedValue = pedido.cd_status.ToString();
+            this.grvPedido.DataSource = lstDemandaGrid;
+            this.grvPedido.DataBind();
+
+            Session.Add("DemandasGrid", lstDemandaGrid);
         }
 
         private void CarregarTela()
@@ -55,13 +95,13 @@ namespace SOTRE.Web
         protected void imgDeletar_Click(object sender, ImageClickEventArgs e)
         {
             DemandaGrid demandaGrid = new DemandaGrid();
-            List<DemandaGrid> lstDemanda = (List<DemandaGrid>)Session["DemandasGrid"];
+            List<DemandaGrid> lstDemandaGrid = (List<DemandaGrid>)Session["DemandasGrid"];
 
-            demandaGrid = lstDemanda.Find(delegate(DemandaGrid d) { return d.ID == int.Parse(((ImageButton)sender).CommandArgument); });
+            demandaGrid = lstDemandaGrid.Find(delegate(DemandaGrid d) { return d.ID == int.Parse(((ImageButton)sender).CommandArgument); });
 
-            lstDemanda.Remove(demandaGrid);
+            lstDemandaGrid.Remove(demandaGrid);
 
-            Session.Add("DemandasGrid", lstDemanda);
+            Session.Add("DemandasGrid", lstDemandaGrid);
 
             CarregarGrid();
         }
@@ -77,17 +117,34 @@ namespace SOTRE.Web
             PedidoBLL pedidoBLL = new PedidoBLL();
             Demanda demanda = new Demanda();
             DemandaBLL demandaBLL = new DemandaBLL();
-            List<DemandaGrid> lstDemanda = (List<DemandaGrid>)Session["DemandasGrid"];
+            List<DemandaGrid> lstDemandaGrid = (List<DemandaGrid>)Session["DemandasGrid"];
+            List<Demanda> lstDemanda = null;
 
             pedido.cd_cliente = int.Parse(ddlCliente.SelectedValue);
             pedido.cd_status = int.Parse(ddlStatus.SelectedValue);
 
-            pedidoBLL.Inserir(pedido);
-
-            pedido = pedidoBLL.RetornarUltimoPedido();
-
-            foreach (DemandaGrid itemDemandaGrid in lstDemanda)
+            if (this.Session["ID"] == null)
             {
+                pedidoBLL.Inserir(pedido);
+                pedido = pedidoBLL.RetornarUltimoPedido();
+            }
+            else
+            {
+                pedido.id_pedido = int.Parse(this.Session["ID"].ToString());
+                pedidoBLL.Atualizar(pedido);
+
+                lstDemanda = demandaBLL.ObterTodos().Where(w => w.cd_pedido == pedido.id_pedido).ToList<Demanda>();
+
+                foreach (Demanda objDemanda in lstDemanda)
+                {
+                    demandaBLL.Excluir(objDemanda.id_demanda);
+                }
+            }
+
+            foreach (DemandaGrid itemDemandaGrid in lstDemandaGrid)
+            {
+                demanda = new Demanda();
+
                 demanda.cd_produto = itemDemandaGrid.ID;
                 demanda.cd_pedido = pedido.id_pedido;
                 demanda.qtd_produto = itemDemandaGrid.Quantidade;
@@ -102,7 +159,7 @@ namespace SOTRE.Web
         protected void imgAddProduto_Click(object sender, ImageClickEventArgs e)
         {
             DemandaGrid demandaGrid = new DemandaGrid();
-            List<DemandaGrid> lstDemanda = null;
+            List<DemandaGrid> lstDemandaGrid = null;
 
             demandaGrid.ID = int.Parse(ddlProdutos.SelectedValue);
             demandaGrid.Nome_Produto = ddlProdutos.SelectedItem.Text;
@@ -110,17 +167,17 @@ namespace SOTRE.Web
 
             if (Session["DemandasGrid"] == null)
             {
-                lstDemanda = new List<DemandaGrid>();
+                lstDemandaGrid = new List<DemandaGrid>();
 
-                lstDemanda.Add(demandaGrid);
+                lstDemandaGrid.Add(demandaGrid);
             }
             else
             {
-                lstDemanda = (List<DemandaGrid>)Session["DemandasGrid"];
-                lstDemanda.Add(demandaGrid);
+                lstDemandaGrid = (List<DemandaGrid>)Session["DemandasGrid"];
+                lstDemandaGrid.Add(demandaGrid);
             }
 
-            Session.Add("DemandasGrid", lstDemanda);
+            Session.Add("DemandasGrid", lstDemandaGrid);
 
             CarregarGrid();
         }
