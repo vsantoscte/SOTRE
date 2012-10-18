@@ -13,16 +13,16 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Label ID="lblNome" runat="server">Nome:</asp:Label>
+            <td style="width: 30px;">
+                <asp:Label ID="lblNome" runat="server" Font-Size="Medium">Nome</asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNome" runat="server" MaxLength="100" Width="500px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:Label ID="lblCpf" runat="server">CPF:</asp:Label>
+                <asp:Label ID="lblCpf" runat="server" Font-Size="Medium">CPF</asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtCpf" runat="server"></asp:TextBox>
@@ -30,26 +30,34 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="lblLogin" runat="server">Login:</asp:Label>
+                <asp:Label ID="lblLogin" runat="server" Font-Size="Medium">Login</asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtCadLogin" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCadLogin" runat="server" MaxLength="20"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:Label ID="lblSenha" runat="server">Senha:</asp:Label>
+                <asp:Label ID="lblSenha" runat="server" Font-Size="Medium">Senha</asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtCadSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCadSenha" TextMode="Password" runat="server" MaxLength="15"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td align="right">
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+            <td>
             </td>
             <td align="right">
-                <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+                <table>
+                    <tr>
+                        <td  align="left">
+                            <asp:Button ID="Button1" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+                        </td>
+                        <td  align="right">
+                            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>

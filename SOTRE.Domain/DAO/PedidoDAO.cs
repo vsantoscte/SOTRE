@@ -15,7 +15,7 @@ namespace SOTRE.Domain.DAO
             {
                 using (SOTREDataContext contexto = new SOTREDataContext())
                 {
-                    IQueryable<Pedido> query = contexto.Pedido.ToList<Pedido>().AsQueryable<Pedido>();
+                    IQueryable<Pedido> query = contexto.Pedidos.ToList<Pedido>().AsQueryable<Pedido>();
                     query = query.OrderBy(q => q.id_pedido);
 
                     return query.Last<Pedido>();

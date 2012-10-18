@@ -22,7 +22,7 @@ namespace SOTRE.Domain
         /// <returns>Usuario obtido como retorno da consulta</returns>
         public Usuario UsuarioAutenticar(Usuario entidade)
         {
-            return contexto.Usuario.FirstOrDefault(q => q.nm_login == entidade.nm_login && q.nm_senha == entidade.nm_senha);
+            return contexto.Usuarios.FirstOrDefault(q => q.nm_login == entidade.nm_login && q.nm_senha == entidade.nm_senha);
         }
     }
 }

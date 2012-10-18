@@ -63,7 +63,7 @@ namespace SOTRE.Domain
     #endregion
 		
 		public SOTREDataContext() : 
-				base(global::SOTRE.Domain.Properties.Settings.Default.SOTREConnectionString1, mappingSource)
+				base(global::SOTRE.Domain.Properties.Settings.Default.SOTREConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -92,7 +92,7 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Caminho> Caminho
+		public System.Data.Linq.Table<Caminho> Caminhos
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Veiculo> Veiculo
+		public System.Data.Linq.Table<Veiculo> Veiculos
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Cliente> Cliente
+		public System.Data.Linq.Table<Cliente> Clientes
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Demanda> Demanda
+		public System.Data.Linq.Table<Demanda> Demandas
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Pedido> Pedido
+		public System.Data.Linq.Table<Pedido> Pedidos
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Produto> Produto
+		public System.Data.Linq.Table<Produto> Produtos
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Tab_Tipo_Status_Veiculo> Tab_Tipo_Status_Veiculo
+		public System.Data.Linq.Table<Tab_Tipo_Status_Veiculo> Tab_Tipo_Status_Veiculos
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Tipo_Cliente> Tipo_Cliente
+		public System.Data.Linq.Table<Tipo_Cliente> Tipo_Clientes
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Usuario> Usuario
+		public System.Data.Linq.Table<Usuario> Usuarios
 		{
 			get
 			{
@@ -341,12 +341,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Cliente.Entity = null;
-						previousValue.Caminho.Remove(this);
+						previousValue.Caminhos.Remove(this);
 					}
 					this._Cliente.Entity = value;
 					if ((value != null))
 					{
-						value.Caminho.Add(this);
+						value.Caminhos.Add(this);
 						this._cd_partida = value.id_cliente;
 					}
 					else
@@ -375,12 +375,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Cliente1.Entity = null;
-						previousValue.Caminho1.Remove(this);
+						previousValue.Caminhos1.Remove(this);
 					}
 					this._Cliente1.Entity = value;
 					if ((value != null))
 					{
-						value.Caminho1.Add(this);
+						value.Caminhos1.Add(this);
 						this._cd_destino = value.id_cliente;
 					}
 					else
@@ -550,12 +550,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Tab_Tipo_Status_Veiculo.Entity = null;
-						previousValue.Veiculo.Remove(this);
+						previousValue.Veiculos.Remove(this);
 					}
 					this._Tab_Tipo_Status_Veiculo.Entity = value;
 					if ((value != null))
 					{
-						value.Veiculo.Add(this);
+						value.Veiculos.Add(this);
 						this._cd_status = value.id_status;
 					}
 					else
@@ -614,11 +614,11 @@ namespace SOTRE.Domain
 		
 		private string _nm_cidade;
 		
-		private EntitySet<Caminho> _Caminho;
+		private EntitySet<Caminho> _Caminhos;
 		
-		private EntitySet<Caminho> _Caminho1;
+		private EntitySet<Caminho> _Caminhos1;
 		
-		private EntitySet<Pedido> _Pedido;
+		private EntitySet<Pedido> _Pedidos;
 		
 		private EntityRef<Tipo_Cliente> _Tipo_Cliente;
 		
@@ -650,9 +650,9 @@ namespace SOTRE.Domain
 		
 		public Cliente()
 		{
-			this._Caminho = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminho), new Action<Caminho>(this.detach_Caminho));
-			this._Caminho1 = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminho1), new Action<Caminho>(this.detach_Caminho1));
-			this._Pedido = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedido), new Action<Pedido>(this.detach_Pedido));
+			this._Caminhos = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminhos), new Action<Caminho>(this.detach_Caminhos));
+			this._Caminhos1 = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminhos1), new Action<Caminho>(this.detach_Caminhos1));
+			this._Pedidos = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedidos), new Action<Pedido>(this.detach_Pedidos));
 			this._Tipo_Cliente = default(EntityRef<Tipo_Cliente>);
 			OnCreated();
 		}
@@ -861,42 +861,42 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho", Storage="_Caminho", ThisKey="id_cliente", OtherKey="cd_partida")]
-		public EntitySet<Caminho> Caminho
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho", Storage="_Caminhos", ThisKey="id_cliente", OtherKey="cd_partida")]
+		public EntitySet<Caminho> Caminhos
 		{
 			get
 			{
-				return this._Caminho;
+				return this._Caminhos;
 			}
 			set
 			{
-				this._Caminho.Assign(value);
+				this._Caminhos.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho1", Storage="_Caminho1", ThisKey="id_cliente", OtherKey="cd_destino")]
-		public EntitySet<Caminho> Caminho1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho1", Storage="_Caminhos1", ThisKey="id_cliente", OtherKey="cd_destino")]
+		public EntitySet<Caminho> Caminhos1
 		{
 			get
 			{
-				return this._Caminho1;
+				return this._Caminhos1;
 			}
 			set
 			{
-				this._Caminho1.Assign(value);
+				this._Caminhos1.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Pedido", Storage="_Pedido", ThisKey="id_cliente", OtherKey="cd_cliente")]
-		public EntitySet<Pedido> Pedido
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Pedido", Storage="_Pedidos", ThisKey="id_cliente", OtherKey="cd_cliente")]
+		public EntitySet<Pedido> Pedidos
 		{
 			get
 			{
-				return this._Pedido;
+				return this._Pedidos;
 			}
 			set
 			{
-				this._Pedido.Assign(value);
+				this._Pedidos.Assign(value);
 			}
 		}
 		
@@ -917,12 +917,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Tipo_Cliente.Entity = null;
-						previousValue.Cliente.Remove(this);
+						previousValue.Clientes.Remove(this);
 					}
 					this._Tipo_Cliente.Entity = value;
 					if ((value != null))
 					{
-						value.Cliente.Add(this);
+						value.Clientes.Add(this);
 						this._cd_tipo = value.id_tipo;
 					}
 					else
@@ -954,37 +954,37 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Caminho(Caminho entity)
+		private void attach_Caminhos(Caminho entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = this;
 		}
 		
-		private void detach_Caminho(Caminho entity)
+		private void detach_Caminhos(Caminho entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = null;
 		}
 		
-		private void attach_Caminho1(Caminho entity)
+		private void attach_Caminhos1(Caminho entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente1 = this;
 		}
 		
-		private void detach_Caminho1(Caminho entity)
+		private void detach_Caminhos1(Caminho entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente1 = null;
 		}
 		
-		private void attach_Pedido(Pedido entity)
+		private void attach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = this;
 		}
 		
-		private void detach_Pedido(Pedido entity)
+		private void detach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = null;
@@ -1135,12 +1135,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Pedido.Entity = null;
-						previousValue.Demanda.Remove(this);
+						previousValue.Demandas.Remove(this);
 					}
 					this._Pedido.Entity = value;
 					if ((value != null))
 					{
-						value.Demanda.Add(this);
+						value.Demandas.Add(this);
 						this._cd_pedido = value.id_pedido;
 					}
 					else
@@ -1169,12 +1169,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Produto.Entity = null;
-						previousValue.Demanda.Remove(this);
+						previousValue.Demandas.Remove(this);
 					}
 					this._Produto.Entity = value;
 					if ((value != null))
 					{
-						value.Demanda.Add(this);
+						value.Demandas.Add(this);
 						this._cd_produto = value.id_produto;
 					}
 					else
@@ -1219,7 +1219,7 @@ namespace SOTRE.Domain
 		
 		private int _cd_status;
 		
-		private EntitySet<Demanda> _Demanda;
+		private EntitySet<Demanda> _Demandas;
 		
 		private EntityRef<Cliente> _Cliente;
 		
@@ -1239,7 +1239,7 @@ namespace SOTRE.Domain
 		
 		public Pedido()
 		{
-			this._Demanda = new EntitySet<Demanda>(new Action<Demanda>(this.attach_Demanda), new Action<Demanda>(this.detach_Demanda));
+			this._Demandas = new EntitySet<Demanda>(new Action<Demanda>(this.attach_Demandas), new Action<Demanda>(this.detach_Demandas));
 			this._Cliente = default(EntityRef<Cliente>);
 			this._Tab_Tipo_Status = default(EntityRef<Tab_Tipo_Status>);
 			OnCreated();
@@ -1313,16 +1313,16 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pedido_Demanda", Storage="_Demanda", ThisKey="id_pedido", OtherKey="cd_pedido")]
-		public EntitySet<Demanda> Demanda
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pedido_Demanda", Storage="_Demandas", ThisKey="id_pedido", OtherKey="cd_pedido")]
+		public EntitySet<Demanda> Demandas
 		{
 			get
 			{
-				return this._Demanda;
+				return this._Demandas;
 			}
 			set
 			{
-				this._Demanda.Assign(value);
+				this._Demandas.Assign(value);
 			}
 		}
 		
@@ -1343,12 +1343,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Cliente.Entity = null;
-						previousValue.Pedido.Remove(this);
+						previousValue.Pedidos.Remove(this);
 					}
 					this._Cliente.Entity = value;
 					if ((value != null))
 					{
-						value.Pedido.Add(this);
+						value.Pedidos.Add(this);
 						this._cd_cliente = value.id_cliente;
 					}
 					else
@@ -1377,12 +1377,12 @@ namespace SOTRE.Domain
 					if ((previousValue != null))
 					{
 						this._Tab_Tipo_Status.Entity = null;
-						previousValue.Pedido.Remove(this);
+						previousValue.Pedidos.Remove(this);
 					}
 					this._Tab_Tipo_Status.Entity = value;
 					if ((value != null))
 					{
-						value.Pedido.Add(this);
+						value.Pedidos.Add(this);
 						this._cd_status = value.id_status;
 					}
 					else
@@ -1414,13 +1414,13 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Demanda(Demanda entity)
+		private void attach_Demandas(Demanda entity)
 		{
 			this.SendPropertyChanging();
 			entity.Pedido = this;
 		}
 		
-		private void detach_Demanda(Demanda entity)
+		private void detach_Demandas(Demanda entity)
 		{
 			this.SendPropertyChanging();
 			entity.Pedido = null;
@@ -1443,7 +1443,7 @@ namespace SOTRE.Domain
 		
 		private string _nm_descricao;
 		
-		private EntitySet<Demanda> _Demanda;
+		private EntitySet<Demanda> _Demandas;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1463,7 +1463,7 @@ namespace SOTRE.Domain
 		
 		public Produto()
 		{
-			this._Demanda = new EntitySet<Demanda>(new Action<Demanda>(this.attach_Demanda), new Action<Demanda>(this.detach_Demanda));
+			this._Demandas = new EntitySet<Demanda>(new Action<Demanda>(this.attach_Demandas), new Action<Demanda>(this.detach_Demandas));
 			OnCreated();
 		}
 		
@@ -1567,16 +1567,16 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produto_Demanda", Storage="_Demanda", ThisKey="id_produto", OtherKey="cd_produto")]
-		public EntitySet<Demanda> Demanda
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produto_Demanda", Storage="_Demandas", ThisKey="id_produto", OtherKey="cd_produto")]
+		public EntitySet<Demanda> Demandas
 		{
 			get
 			{
-				return this._Demanda;
+				return this._Demandas;
 			}
 			set
 			{
-				this._Demanda.Assign(value);
+				this._Demandas.Assign(value);
 			}
 		}
 		
@@ -1600,13 +1600,13 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Demanda(Demanda entity)
+		private void attach_Demandas(Demanda entity)
 		{
 			this.SendPropertyChanging();
 			entity.Produto = this;
 		}
 		
-		private void detach_Demanda(Demanda entity)
+		private void detach_Demandas(Demanda entity)
 		{
 			this.SendPropertyChanging();
 			entity.Produto = null;
@@ -1623,7 +1623,7 @@ namespace SOTRE.Domain
 		
 		private string _nm_descricao;
 		
-		private EntitySet<Pedido> _Pedido;
+		private EntitySet<Pedido> _Pedidos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1637,7 +1637,7 @@ namespace SOTRE.Domain
 		
 		public Tab_Tipo_Status()
 		{
-			this._Pedido = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedido), new Action<Pedido>(this.detach_Pedido));
+			this._Pedidos = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedidos), new Action<Pedido>(this.detach_Pedidos));
 			OnCreated();
 		}
 		
@@ -1681,16 +1681,16 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Pedido", Storage="_Pedido", ThisKey="id_status", OtherKey="cd_status")]
-		public EntitySet<Pedido> Pedido
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Pedido", Storage="_Pedidos", ThisKey="id_status", OtherKey="cd_status")]
+		public EntitySet<Pedido> Pedidos
 		{
 			get
 			{
-				return this._Pedido;
+				return this._Pedidos;
 			}
 			set
 			{
-				this._Pedido.Assign(value);
+				this._Pedidos.Assign(value);
 			}
 		}
 		
@@ -1714,13 +1714,13 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Pedido(Pedido entity)
+		private void attach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tab_Tipo_Status = this;
 		}
 		
-		private void detach_Pedido(Pedido entity)
+		private void detach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tab_Tipo_Status = null;
@@ -1737,7 +1737,7 @@ namespace SOTRE.Domain
 		
 		private string _nm_descricao;
 		
-		private EntitySet<Veiculo> _Veiculo;
+		private EntitySet<Veiculo> _Veiculos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1751,7 +1751,7 @@ namespace SOTRE.Domain
 		
 		public Tab_Tipo_Status_Veiculo()
 		{
-			this._Veiculo = new EntitySet<Veiculo>(new Action<Veiculo>(this.attach_Veiculo), new Action<Veiculo>(this.detach_Veiculo));
+			this._Veiculos = new EntitySet<Veiculo>(new Action<Veiculo>(this.attach_Veiculos), new Action<Veiculo>(this.detach_Veiculos));
 			OnCreated();
 		}
 		
@@ -1795,16 +1795,16 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Veiculo_Veiculo", Storage="_Veiculo", ThisKey="id_status", OtherKey="cd_status")]
-		public EntitySet<Veiculo> Veiculo
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Veiculo_Veiculo", Storage="_Veiculos", ThisKey="id_status", OtherKey="cd_status")]
+		public EntitySet<Veiculo> Veiculos
 		{
 			get
 			{
-				return this._Veiculo;
+				return this._Veiculos;
 			}
 			set
 			{
-				this._Veiculo.Assign(value);
+				this._Veiculos.Assign(value);
 			}
 		}
 		
@@ -1828,13 +1828,13 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Veiculo(Veiculo entity)
+		private void attach_Veiculos(Veiculo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tab_Tipo_Status_Veiculo = this;
 		}
 		
-		private void detach_Veiculo(Veiculo entity)
+		private void detach_Veiculos(Veiculo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tab_Tipo_Status_Veiculo = null;
@@ -1851,7 +1851,7 @@ namespace SOTRE.Domain
 		
 		private string _nm_descricao_tipo;
 		
-		private EntitySet<Cliente> _Cliente;
+		private EntitySet<Cliente> _Clientes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1865,7 +1865,7 @@ namespace SOTRE.Domain
 		
 		public Tipo_Cliente()
 		{
-			this._Cliente = new EntitySet<Cliente>(new Action<Cliente>(this.attach_Cliente), new Action<Cliente>(this.detach_Cliente));
+			this._Clientes = new EntitySet<Cliente>(new Action<Cliente>(this.attach_Clientes), new Action<Cliente>(this.detach_Clientes));
 			OnCreated();
 		}
 		
@@ -1909,16 +1909,16 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Cliente_Cliente", Storage="_Cliente", ThisKey="id_tipo", OtherKey="cd_tipo")]
-		public EntitySet<Cliente> Cliente
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Cliente_Cliente", Storage="_Clientes", ThisKey="id_tipo", OtherKey="cd_tipo")]
+		public EntitySet<Cliente> Clientes
 		{
 			get
 			{
-				return this._Cliente;
+				return this._Clientes;
 			}
 			set
 			{
-				this._Cliente.Assign(value);
+				this._Clientes.Assign(value);
 			}
 		}
 		
@@ -1942,13 +1942,13 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Cliente(Cliente entity)
+		private void attach_Clientes(Cliente entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tipo_Cliente = this;
 		}
 		
-		private void detach_Cliente(Cliente entity)
+		private void detach_Clientes(Cliente entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tipo_Cliente = null;

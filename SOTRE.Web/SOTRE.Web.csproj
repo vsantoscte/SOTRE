@@ -73,7 +73,6 @@
     <Content Include="PesqVeiculo.aspx" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\style.css" />
-    <Content Include="Styles\styleLogin.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
