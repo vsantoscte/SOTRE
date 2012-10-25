@@ -22,7 +22,7 @@ namespace SOTRE.Web
         private void CarregarTela()
         {
             IQueryable<Veiculo> queryVeiculo = new VeiculoBLL().ObterTodos();
-            IQueryable<Tab_Tipo_Status_Veiculo> queryStatus = new StatusVeiculoBLL().ObterTodos();
+            IQueryable<Status_Veiculo> queryStatus = new StatusVeiculoBLL().ObterTodos();
 
 
             this.grvVeiculo.DataSource = (from v in queryVeiculo

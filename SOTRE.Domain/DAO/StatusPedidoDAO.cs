@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SOTRE.Domain.DAO
 {
-    internal class StatusPedidoDAO : BaseDAO<Tab_Tipo_Status>
+    internal class StatusPedidoDAO : BaseDAO<Status_Pedido>
     {
     }
 }

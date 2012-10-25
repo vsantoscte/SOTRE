@@ -27,7 +27,7 @@ namespace SOTRE.Web
             grvCliente.DataSource = (from c in queryCliente
                                      join t in queryTipoCliente
                                      on c.cd_tipo equals t.id_tipo
-                                     select new { ID = c.id_cliente, cpf_cnpj = c.nm_cpf_cnpj, tipo = t.nm_descricao_tipo, nome = c.nm_nome, bairro = c.nm_bairro, cep = c.nm_cep });
+                                     select new { ID = c.id_cliente, cpf_cnpj = c.nm_cpf_cnpj, tipo = t.nm_descricao, nome = c.nm_nome, bairro = c.nm_bairro, cep = c.nm_cep });
 
             grvCliente.DataBind();
 

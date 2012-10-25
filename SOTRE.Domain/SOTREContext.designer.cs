@@ -30,15 +30,12 @@ namespace SOTRE.Domain
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCaminho(Caminho instance);
-    partial void UpdateCaminho(Caminho instance);
-    partial void DeleteCaminho(Caminho instance);
-    partial void InsertVeiculo(Veiculo instance);
-    partial void UpdateVeiculo(Veiculo instance);
-    partial void DeleteVeiculo(Veiculo instance);
     partial void InsertCliente(Cliente instance);
     partial void UpdateCliente(Cliente instance);
     partial void DeleteCliente(Cliente instance);
+    partial void InsertViagem(Viagem instance);
+    partial void UpdateViagem(Viagem instance);
+    partial void DeleteViagem(Viagem instance);
     partial void InsertDemanda(Demanda instance);
     partial void UpdateDemanda(Demanda instance);
     partial void DeleteDemanda(Demanda instance);
@@ -48,18 +45,27 @@ namespace SOTRE.Domain
     partial void InsertProduto(Produto instance);
     partial void UpdateProduto(Produto instance);
     partial void DeleteProduto(Produto instance);
-    partial void InsertTab_Tipo_Status(Tab_Tipo_Status instance);
-    partial void UpdateTab_Tipo_Status(Tab_Tipo_Status instance);
-    partial void DeleteTab_Tipo_Status(Tab_Tipo_Status instance);
-    partial void InsertTab_Tipo_Status_Veiculo(Tab_Tipo_Status_Veiculo instance);
-    partial void UpdateTab_Tipo_Status_Veiculo(Tab_Tipo_Status_Veiculo instance);
-    partial void DeleteTab_Tipo_Status_Veiculo(Tab_Tipo_Status_Veiculo instance);
+    partial void InsertStatus_Pedido(Status_Pedido instance);
+    partial void UpdateStatus_Pedido(Status_Pedido instance);
+    partial void DeleteStatus_Pedido(Status_Pedido instance);
+    partial void InsertStatus_Veiculo(Status_Veiculo instance);
+    partial void UpdateStatus_Veiculo(Status_Veiculo instance);
+    partial void DeleteStatus_Veiculo(Status_Veiculo instance);
     partial void InsertTipo_Cliente(Tipo_Cliente instance);
     partial void UpdateTipo_Cliente(Tipo_Cliente instance);
     partial void DeleteTipo_Cliente(Tipo_Cliente instance);
+    partial void InsertTurno(Turno instance);
+    partial void UpdateTurno(Turno instance);
+    partial void DeleteTurno(Turno instance);
+    partial void InsertTurno_Cliente(Turno_Cliente instance);
+    partial void UpdateTurno_Cliente(Turno_Cliente instance);
+    partial void DeleteTurno_Cliente(Turno_Cliente instance);
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
+    partial void InsertVeiculo(Veiculo instance);
+    partial void UpdateVeiculo(Veiculo instance);
+    partial void DeleteVeiculo(Veiculo instance);
     #endregion
 		
 		public SOTREDataContext() : 
@@ -92,27 +98,19 @@ namespace SOTRE.Domain
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Caminho> Caminhos
-		{
-			get
-			{
-				return this.GetTable<Caminho>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Veiculo> Veiculos
-		{
-			get
-			{
-				return this.GetTable<Veiculo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Cliente> Clientes
 		{
 			get
 			{
 				return this.GetTable<Cliente>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Viagem> Viagems
+		{
+			get
+			{
+				return this.GetTable<Viagem>();
 			}
 		}
 		
@@ -140,19 +138,19 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		public System.Data.Linq.Table<Tab_Tipo_Status> Tab_Tipo_Status
+		public System.Data.Linq.Table<Status_Pedido> Status_Pedidos
 		{
 			get
 			{
-				return this.GetTable<Tab_Tipo_Status>();
+				return this.GetTable<Status_Pedido>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Tab_Tipo_Status_Veiculo> Tab_Tipo_Status_Veiculos
+		public System.Data.Linq.Table<Status_Veiculo> Status_Veiculos
 		{
 			get
 			{
-				return this.GetTable<Tab_Tipo_Status_Veiculo>();
+				return this.GetTable<Status_Veiculo>();
 			}
 		}
 		
@@ -164,6 +162,22 @@ namespace SOTRE.Domain
 			}
 		}
 		
+		public System.Data.Linq.Table<Turno> Turnos
+		{
+			get
+			{
+				return this.GetTable<Turno>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Turno_Cliente> Turno_Clientes
+		{
+			get
+			{
+				return this.GetTable<Turno_Cliente>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Usuario> Usuarios
 		{
 			get
@@ -171,419 +185,12 @@ namespace SOTRE.Domain
 				return this.GetTable<Usuario>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Caminho")]
-	public partial class Caminho : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_caminho;
-		
-		private int _cd_partida;
-		
-		private int _cd_destino;
-		
-		private double _cd_duracao;
-		
-		private double _cd_distancia;
-		
-		private EntityRef<Cliente> _Cliente;
-		
-		private EntityRef<Cliente> _Cliente1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_caminhoChanging(int value);
-    partial void Onid_caminhoChanged();
-    partial void Oncd_partidaChanging(int value);
-    partial void Oncd_partidaChanged();
-    partial void Oncd_destinoChanging(int value);
-    partial void Oncd_destinoChanged();
-    partial void Oncd_duracaoChanging(double value);
-    partial void Oncd_duracaoChanged();
-    partial void Oncd_distanciaChanging(double value);
-    partial void Oncd_distanciaChanged();
-    #endregion
-		
-		public Caminho()
-		{
-			this._Cliente = default(EntityRef<Cliente>);
-			this._Cliente1 = default(EntityRef<Cliente>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_caminho", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_caminho
+		public System.Data.Linq.Table<Veiculo> Veiculos
 		{
 			get
 			{
-				return this._id_caminho;
-			}
-			set
-			{
-				if ((this._id_caminho != value))
-				{
-					this.Onid_caminhoChanging(value);
-					this.SendPropertyChanging();
-					this._id_caminho = value;
-					this.SendPropertyChanged("id_caminho");
-					this.Onid_caminhoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_partida", DbType="Int NOT NULL")]
-		public int cd_partida
-		{
-			get
-			{
-				return this._cd_partida;
-			}
-			set
-			{
-				if ((this._cd_partida != value))
-				{
-					if (this._Cliente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncd_partidaChanging(value);
-					this.SendPropertyChanging();
-					this._cd_partida = value;
-					this.SendPropertyChanged("cd_partida");
-					this.Oncd_partidaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_destino", DbType="Int NOT NULL")]
-		public int cd_destino
-		{
-			get
-			{
-				return this._cd_destino;
-			}
-			set
-			{
-				if ((this._cd_destino != value))
-				{
-					if (this._Cliente1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncd_destinoChanging(value);
-					this.SendPropertyChanging();
-					this._cd_destino = value;
-					this.SendPropertyChanged("cd_destino");
-					this.Oncd_destinoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_duracao", DbType="Float NOT NULL")]
-		public double cd_duracao
-		{
-			get
-			{
-				return this._cd_duracao;
-			}
-			set
-			{
-				if ((this._cd_duracao != value))
-				{
-					this.Oncd_duracaoChanging(value);
-					this.SendPropertyChanging();
-					this._cd_duracao = value;
-					this.SendPropertyChanged("cd_duracao");
-					this.Oncd_duracaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_distancia", DbType="Float NOT NULL")]
-		public double cd_distancia
-		{
-			get
-			{
-				return this._cd_distancia;
-			}
-			set
-			{
-				if ((this._cd_distancia != value))
-				{
-					this.Oncd_distanciaChanging(value);
-					this.SendPropertyChanging();
-					this._cd_distancia = value;
-					this.SendPropertyChanged("cd_distancia");
-					this.Oncd_distanciaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho", Storage="_Cliente", ThisKey="cd_partida", OtherKey="id_cliente", IsForeignKey=true)]
-		public Cliente Cliente
-		{
-			get
-			{
-				return this._Cliente.Entity;
-			}
-			set
-			{
-				Cliente previousValue = this._Cliente.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente.Entity = null;
-						previousValue.Caminhos.Remove(this);
-					}
-					this._Cliente.Entity = value;
-					if ((value != null))
-					{
-						value.Caminhos.Add(this);
-						this._cd_partida = value.id_cliente;
-					}
-					else
-					{
-						this._cd_partida = default(int);
-					}
-					this.SendPropertyChanged("Cliente");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho1", Storage="_Cliente1", ThisKey="cd_destino", OtherKey="id_cliente", IsForeignKey=true)]
-		public Cliente Cliente1
-		{
-			get
-			{
-				return this._Cliente1.Entity;
-			}
-			set
-			{
-				Cliente previousValue = this._Cliente1.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente1.Entity = null;
-						previousValue.Caminhos1.Remove(this);
-					}
-					this._Cliente1.Entity = value;
-					if ((value != null))
-					{
-						value.Caminhos1.Add(this);
-						this._cd_destino = value.id_cliente;
-					}
-					else
-					{
-						this._cd_destino = default(int);
-					}
-					this.SendPropertyChanged("Cliente1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Veiculo")]
-	public partial class Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_veiculo;
-		
-		private int _cd_status;
-		
-		private string _nm_nome;
-		
-		private double _capacidade;
-		
-		private EntityRef<Tab_Tipo_Status_Veiculo> _Tab_Tipo_Status_Veiculo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_veiculoChanging(int value);
-    partial void Onid_veiculoChanged();
-    partial void Oncd_statusChanging(int value);
-    partial void Oncd_statusChanged();
-    partial void Onnm_nomeChanging(string value);
-    partial void Onnm_nomeChanged();
-    partial void OncapacidadeChanging(double value);
-    partial void OncapacidadeChanged();
-    #endregion
-		
-		public Veiculo()
-		{
-			this._Tab_Tipo_Status_Veiculo = default(EntityRef<Tab_Tipo_Status_Veiculo>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_veiculo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_veiculo
-		{
-			get
-			{
-				return this._id_veiculo;
-			}
-			set
-			{
-				if ((this._id_veiculo != value))
-				{
-					this.Onid_veiculoChanging(value);
-					this.SendPropertyChanging();
-					this._id_veiculo = value;
-					this.SendPropertyChanged("id_veiculo");
-					this.Onid_veiculoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_status", DbType="Int NOT NULL")]
-		public int cd_status
-		{
-			get
-			{
-				return this._cd_status;
-			}
-			set
-			{
-				if ((this._cd_status != value))
-				{
-					if (this._Tab_Tipo_Status_Veiculo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncd_statusChanging(value);
-					this.SendPropertyChanging();
-					this._cd_status = value;
-					this.SendPropertyChanged("cd_status");
-					this.Oncd_statusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_nome", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nm_nome
-		{
-			get
-			{
-				return this._nm_nome;
-			}
-			set
-			{
-				if ((this._nm_nome != value))
-				{
-					this.Onnm_nomeChanging(value);
-					this.SendPropertyChanging();
-					this._nm_nome = value;
-					this.SendPropertyChanged("nm_nome");
-					this.Onnm_nomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_capacidade", DbType="Float NOT NULL")]
-		public double capacidade
-		{
-			get
-			{
-				return this._capacidade;
-			}
-			set
-			{
-				if ((this._capacidade != value))
-				{
-					this.OncapacidadeChanging(value);
-					this.SendPropertyChanging();
-					this._capacidade = value;
-					this.SendPropertyChanged("capacidade");
-					this.OncapacidadeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Veiculo_Veiculo", Storage="_Tab_Tipo_Status_Veiculo", ThisKey="cd_status", OtherKey="id_status", IsForeignKey=true)]
-		public Tab_Tipo_Status_Veiculo Tab_Tipo_Status_Veiculo
-		{
-			get
-			{
-				return this._Tab_Tipo_Status_Veiculo.Entity;
-			}
-			set
-			{
-				Tab_Tipo_Status_Veiculo previousValue = this._Tab_Tipo_Status_Veiculo.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_Tipo_Status_Veiculo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_Tipo_Status_Veiculo.Entity = null;
-						previousValue.Veiculos.Remove(this);
-					}
-					this._Tab_Tipo_Status_Veiculo.Entity = value;
-					if ((value != null))
-					{
-						value.Veiculos.Add(this);
-						this._cd_status = value.id_status;
-					}
-					else
-					{
-						this._cd_status = default(int);
-					}
-					this.SendPropertyChanged("Tab_Tipo_Status_Veiculo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Veiculo>();
 			}
 		}
 	}
@@ -614,11 +221,17 @@ namespace SOTRE.Domain
 		
 		private string _nm_cidade;
 		
-		private EntitySet<Caminho> _Caminhos;
+		private string _nm_longitude;
 		
-		private EntitySet<Caminho> _Caminhos1;
+		private string _nm_latitude;
+		
+		private EntitySet<Viagem> _Viagems;
+		
+		private EntitySet<Viagem> _Viagems1;
 		
 		private EntitySet<Pedido> _Pedidos;
+		
+		private EntitySet<Turno_Cliente> _Turno_Clientes;
 		
 		private EntityRef<Tipo_Cliente> _Tipo_Cliente;
 		
@@ -646,13 +259,18 @@ namespace SOTRE.Domain
     partial void Onnm_cpf_cnpjChanged();
     partial void Onnm_cidadeChanging(string value);
     partial void Onnm_cidadeChanged();
+    partial void Onnm_longitudeChanging(string value);
+    partial void Onnm_longitudeChanged();
+    partial void Onnm_latitudeChanging(string value);
+    partial void Onnm_latitudeChanged();
     #endregion
 		
 		public Cliente()
 		{
-			this._Caminhos = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminhos), new Action<Caminho>(this.detach_Caminhos));
-			this._Caminhos1 = new EntitySet<Caminho>(new Action<Caminho>(this.attach_Caminhos1), new Action<Caminho>(this.detach_Caminhos1));
+			this._Viagems = new EntitySet<Viagem>(new Action<Viagem>(this.attach_Viagems), new Action<Viagem>(this.detach_Viagems));
+			this._Viagems1 = new EntitySet<Viagem>(new Action<Viagem>(this.attach_Viagems1), new Action<Viagem>(this.detach_Viagems1));
 			this._Pedidos = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedidos), new Action<Pedido>(this.detach_Pedidos));
+			this._Turno_Clientes = new EntitySet<Turno_Cliente>(new Action<Turno_Cliente>(this.attach_Turno_Clientes), new Action<Turno_Cliente>(this.detach_Turno_Clientes));
 			this._Tipo_Cliente = default(EntityRef<Tipo_Cliente>);
 			OnCreated();
 		}
@@ -861,29 +479,69 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho", Storage="_Caminhos", ThisKey="id_cliente", OtherKey="cd_partida")]
-		public EntitySet<Caminho> Caminhos
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_longitude", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nm_longitude
 		{
 			get
 			{
-				return this._Caminhos;
+				return this._nm_longitude;
 			}
 			set
 			{
-				this._Caminhos.Assign(value);
+				if ((this._nm_longitude != value))
+				{
+					this.Onnm_longitudeChanging(value);
+					this.SendPropertyChanging();
+					this._nm_longitude = value;
+					this.SendPropertyChanged("nm_longitude");
+					this.Onnm_longitudeChanged();
+				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Caminho1", Storage="_Caminhos1", ThisKey="id_cliente", OtherKey="cd_destino")]
-		public EntitySet<Caminho> Caminhos1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_latitude", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nm_latitude
 		{
 			get
 			{
-				return this._Caminhos1;
+				return this._nm_latitude;
 			}
 			set
 			{
-				this._Caminhos1.Assign(value);
+				if ((this._nm_latitude != value))
+				{
+					this.Onnm_latitudeChanging(value);
+					this.SendPropertyChanging();
+					this._nm_latitude = value;
+					this.SendPropertyChanged("nm_latitude");
+					this.Onnm_latitudeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Viagem", Storage="_Viagems", ThisKey="id_cliente", OtherKey="cd_partida")]
+		public EntitySet<Viagem> Viagems
+		{
+			get
+			{
+				return this._Viagems;
+			}
+			set
+			{
+				this._Viagems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Viagem1", Storage="_Viagems1", ThisKey="id_cliente", OtherKey="cd_destino")]
+		public EntitySet<Viagem> Viagems1
+		{
+			get
+			{
+				return this._Viagems1;
+			}
+			set
+			{
+				this._Viagems1.Assign(value);
 			}
 		}
 		
@@ -897,6 +555,19 @@ namespace SOTRE.Domain
 			set
 			{
 				this._Pedidos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Turno_Cliente", Storage="_Turno_Clientes", ThisKey="id_cliente", OtherKey="cd_cliente")]
+		public EntitySet<Turno_Cliente> Turno_Clientes
+		{
+			get
+			{
+				return this._Turno_Clientes;
+			}
+			set
+			{
+				this._Turno_Clientes.Assign(value);
 			}
 		}
 		
@@ -954,25 +625,25 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		private void attach_Caminhos(Caminho entity)
+		private void attach_Viagems(Viagem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = this;
 		}
 		
-		private void detach_Caminhos(Caminho entity)
+		private void detach_Viagems(Viagem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = null;
 		}
 		
-		private void attach_Caminhos1(Caminho entity)
+		private void attach_Viagems1(Viagem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente1 = this;
 		}
 		
-		private void detach_Caminhos1(Caminho entity)
+		private void detach_Viagems1(Viagem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente1 = null;
@@ -988,6 +659,258 @@ namespace SOTRE.Domain
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = null;
+		}
+		
+		private void attach_Turno_Clientes(Turno_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = this;
+		}
+		
+		private void detach_Turno_Clientes(Turno_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Viagem")]
+	public partial class Viagem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_caminho;
+		
+		private int _cd_partida;
+		
+		private int _cd_destino;
+		
+		private double _cd_duracao;
+		
+		private double _cd_distancia;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+		private EntityRef<Cliente> _Cliente1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_caminhoChanging(int value);
+    partial void Onid_caminhoChanged();
+    partial void Oncd_partidaChanging(int value);
+    partial void Oncd_partidaChanged();
+    partial void Oncd_destinoChanging(int value);
+    partial void Oncd_destinoChanged();
+    partial void Oncd_duracaoChanging(double value);
+    partial void Oncd_duracaoChanged();
+    partial void Oncd_distanciaChanging(double value);
+    partial void Oncd_distanciaChanged();
+    #endregion
+		
+		public Viagem()
+		{
+			this._Cliente = default(EntityRef<Cliente>);
+			this._Cliente1 = default(EntityRef<Cliente>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_caminho", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_caminho
+		{
+			get
+			{
+				return this._id_caminho;
+			}
+			set
+			{
+				if ((this._id_caminho != value))
+				{
+					this.Onid_caminhoChanging(value);
+					this.SendPropertyChanging();
+					this._id_caminho = value;
+					this.SendPropertyChanged("id_caminho");
+					this.Onid_caminhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_partida", DbType="Int NOT NULL")]
+		public int cd_partida
+		{
+			get
+			{
+				return this._cd_partida;
+			}
+			set
+			{
+				if ((this._cd_partida != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncd_partidaChanging(value);
+					this.SendPropertyChanging();
+					this._cd_partida = value;
+					this.SendPropertyChanged("cd_partida");
+					this.Oncd_partidaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_destino", DbType="Int NOT NULL")]
+		public int cd_destino
+		{
+			get
+			{
+				return this._cd_destino;
+			}
+			set
+			{
+				if ((this._cd_destino != value))
+				{
+					if (this._Cliente1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncd_destinoChanging(value);
+					this.SendPropertyChanging();
+					this._cd_destino = value;
+					this.SendPropertyChanged("cd_destino");
+					this.Oncd_destinoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_duracao", DbType="Float NOT NULL")]
+		public double cd_duracao
+		{
+			get
+			{
+				return this._cd_duracao;
+			}
+			set
+			{
+				if ((this._cd_duracao != value))
+				{
+					this.Oncd_duracaoChanging(value);
+					this.SendPropertyChanging();
+					this._cd_duracao = value;
+					this.SendPropertyChanged("cd_duracao");
+					this.Oncd_duracaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_distancia", DbType="Float NOT NULL")]
+		public double cd_distancia
+		{
+			get
+			{
+				return this._cd_distancia;
+			}
+			set
+			{
+				if ((this._cd_distancia != value))
+				{
+					this.Oncd_distanciaChanging(value);
+					this.SendPropertyChanging();
+					this._cd_distancia = value;
+					this.SendPropertyChanged("cd_distancia");
+					this.Oncd_distanciaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Viagem", Storage="_Cliente", ThisKey="cd_partida", OtherKey="id_cliente", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Viagems.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Viagems.Add(this);
+						this._cd_partida = value.id_cliente;
+					}
+					else
+					{
+						this._cd_partida = default(int);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Viagem1", Storage="_Cliente1", ThisKey="cd_destino", OtherKey="id_cliente", IsForeignKey=true)]
+		public Cliente Cliente1
+		{
+			get
+			{
+				return this._Cliente1.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente1.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente1.Entity = null;
+						previousValue.Viagems1.Remove(this);
+					}
+					this._Cliente1.Entity = value;
+					if ((value != null))
+					{
+						value.Viagems1.Add(this);
+						this._cd_destino = value.id_cliente;
+					}
+					else
+					{
+						this._cd_destino = default(int);
+					}
+					this.SendPropertyChanged("Cliente1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1223,7 +1146,7 @@ namespace SOTRE.Domain
 		
 		private EntityRef<Cliente> _Cliente;
 		
-		private EntityRef<Tab_Tipo_Status> _Tab_Tipo_Status;
+		private EntityRef<Status_Pedido> _Status_Pedido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1241,7 +1164,7 @@ namespace SOTRE.Domain
 		{
 			this._Demandas = new EntitySet<Demanda>(new Action<Demanda>(this.attach_Demandas), new Action<Demanda>(this.detach_Demandas));
 			this._Cliente = default(EntityRef<Cliente>);
-			this._Tab_Tipo_Status = default(EntityRef<Tab_Tipo_Status>);
+			this._Status_Pedido = default(EntityRef<Status_Pedido>);
 			OnCreated();
 		}
 		
@@ -1300,7 +1223,7 @@ namespace SOTRE.Domain
 			{
 				if ((this._cd_status != value))
 				{
-					if (this._Tab_Tipo_Status.HasLoadedOrAssignedValue)
+					if (this._Status_Pedido.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1360,26 +1283,26 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Pedido", Storage="_Tab_Tipo_Status", ThisKey="cd_status", OtherKey="id_status", IsForeignKey=true)]
-		public Tab_Tipo_Status Tab_Tipo_Status
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Pedido_Pedido", Storage="_Status_Pedido", ThisKey="cd_status", OtherKey="id_status", IsForeignKey=true)]
+		public Status_Pedido Status_Pedido
 		{
 			get
 			{
-				return this._Tab_Tipo_Status.Entity;
+				return this._Status_Pedido.Entity;
 			}
 			set
 			{
-				Tab_Tipo_Status previousValue = this._Tab_Tipo_Status.Entity;
+				Status_Pedido previousValue = this._Status_Pedido.Entity;
 				if (((previousValue != value) 
-							|| (this._Tab_Tipo_Status.HasLoadedOrAssignedValue == false)))
+							|| (this._Status_Pedido.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Tab_Tipo_Status.Entity = null;
+						this._Status_Pedido.Entity = null;
 						previousValue.Pedidos.Remove(this);
 					}
-					this._Tab_Tipo_Status.Entity = value;
+					this._Status_Pedido.Entity = value;
 					if ((value != null))
 					{
 						value.Pedidos.Add(this);
@@ -1389,7 +1312,7 @@ namespace SOTRE.Domain
 					{
 						this._cd_status = default(int);
 					}
-					this.SendPropertyChanged("Tab_Tipo_Status");
+					this.SendPropertyChanged("Status_Pedido");
 				}
 			}
 		}
@@ -1613,8 +1536,8 @@ namespace SOTRE.Domain
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_Tipo_Status")]
-	public partial class Tab_Tipo_Status : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Status_Pedido")]
+	public partial class Status_Pedido : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1635,7 +1558,7 @@ namespace SOTRE.Domain
     partial void Onnm_descricaoChanged();
     #endregion
 		
-		public Tab_Tipo_Status()
+		public Status_Pedido()
 		{
 			this._Pedidos = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedidos), new Action<Pedido>(this.detach_Pedidos));
 			OnCreated();
@@ -1681,7 +1604,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Pedido", Storage="_Pedidos", ThisKey="id_status", OtherKey="cd_status")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Pedido_Pedido", Storage="_Pedidos", ThisKey="id_status", OtherKey="cd_status")]
 		public EntitySet<Pedido> Pedidos
 		{
 			get
@@ -1717,18 +1640,18 @@ namespace SOTRE.Domain
 		private void attach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
-			entity.Tab_Tipo_Status = this;
+			entity.Status_Pedido = this;
 		}
 		
 		private void detach_Pedidos(Pedido entity)
 		{
 			this.SendPropertyChanging();
-			entity.Tab_Tipo_Status = null;
+			entity.Status_Pedido = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_Tipo_Status_Veiculo")]
-	public partial class Tab_Tipo_Status_Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Status_Veiculo")]
+	public partial class Status_Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1749,7 +1672,7 @@ namespace SOTRE.Domain
     partial void Onnm_descricaoChanged();
     #endregion
 		
-		public Tab_Tipo_Status_Veiculo()
+		public Status_Veiculo()
 		{
 			this._Veiculos = new EntitySet<Veiculo>(new Action<Veiculo>(this.attach_Veiculos), new Action<Veiculo>(this.detach_Veiculos));
 			OnCreated();
@@ -1795,7 +1718,7 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_Tipo_Status_Veiculo_Veiculo", Storage="_Veiculos", ThisKey="id_status", OtherKey="cd_status")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Veiculo_Veiculo", Storage="_Veiculos", ThisKey="id_status", OtherKey="cd_status")]
 		public EntitySet<Veiculo> Veiculos
 		{
 			get
@@ -1831,13 +1754,13 @@ namespace SOTRE.Domain
 		private void attach_Veiculos(Veiculo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Tab_Tipo_Status_Veiculo = this;
+			entity.Status_Veiculo = this;
 		}
 		
 		private void detach_Veiculos(Veiculo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Tab_Tipo_Status_Veiculo = null;
+			entity.Status_Veiculo = null;
 		}
 	}
 	
@@ -1849,7 +1772,7 @@ namespace SOTRE.Domain
 		
 		private int _id_tipo;
 		
-		private string _nm_descricao_tipo;
+		private string _nm_descricao;
 		
 		private EntitySet<Cliente> _Clientes;
 		
@@ -1859,8 +1782,8 @@ namespace SOTRE.Domain
     partial void OnCreated();
     partial void Onid_tipoChanging(int value);
     partial void Onid_tipoChanged();
-    partial void Onnm_descricao_tipoChanging(string value);
-    partial void Onnm_descricao_tipoChanged();
+    partial void Onnm_descricaoChanging(string value);
+    partial void Onnm_descricaoChanged();
     #endregion
 		
 		public Tipo_Cliente()
@@ -1889,22 +1812,22 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_descricao_tipo", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string nm_descricao_tipo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_descricao", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string nm_descricao
 		{
 			get
 			{
-				return this._nm_descricao_tipo;
+				return this._nm_descricao;
 			}
 			set
 			{
-				if ((this._nm_descricao_tipo != value))
+				if ((this._nm_descricao != value))
 				{
-					this.Onnm_descricao_tipoChanging(value);
+					this.Onnm_descricaoChanging(value);
 					this.SendPropertyChanging();
-					this._nm_descricao_tipo = value;
-					this.SendPropertyChanged("nm_descricao_tipo");
-					this.Onnm_descricao_tipoChanged();
+					this._nm_descricao = value;
+					this.SendPropertyChanged("nm_descricao");
+					this.Onnm_descricaoChanged();
 				}
 			}
 		}
@@ -1952,6 +1875,360 @@ namespace SOTRE.Domain
 		{
 			this.SendPropertyChanging();
 			entity.Tipo_Cliente = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Turno")]
+	public partial class Turno : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_turno;
+		
+		private int _cd_horaInicial;
+		
+		private int _cd_horaFinal;
+		
+		private int _cd_trafego;
+		
+		private EntitySet<Turno_Cliente> _Turno_Clientes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_turnoChanging(int value);
+    partial void Onid_turnoChanged();
+    partial void Oncd_horaInicialChanging(int value);
+    partial void Oncd_horaInicialChanged();
+    partial void Oncd_horaFinalChanging(int value);
+    partial void Oncd_horaFinalChanged();
+    partial void Oncd_trafegoChanging(int value);
+    partial void Oncd_trafegoChanged();
+    #endregion
+		
+		public Turno()
+		{
+			this._Turno_Clientes = new EntitySet<Turno_Cliente>(new Action<Turno_Cliente>(this.attach_Turno_Clientes), new Action<Turno_Cliente>(this.detach_Turno_Clientes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_turno", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_turno
+		{
+			get
+			{
+				return this._id_turno;
+			}
+			set
+			{
+				if ((this._id_turno != value))
+				{
+					this.Onid_turnoChanging(value);
+					this.SendPropertyChanging();
+					this._id_turno = value;
+					this.SendPropertyChanged("id_turno");
+					this.Onid_turnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_horaInicial", DbType="Int NOT NULL")]
+		public int cd_horaInicial
+		{
+			get
+			{
+				return this._cd_horaInicial;
+			}
+			set
+			{
+				if ((this._cd_horaInicial != value))
+				{
+					this.Oncd_horaInicialChanging(value);
+					this.SendPropertyChanging();
+					this._cd_horaInicial = value;
+					this.SendPropertyChanged("cd_horaInicial");
+					this.Oncd_horaInicialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_horaFinal", DbType="Int NOT NULL")]
+		public int cd_horaFinal
+		{
+			get
+			{
+				return this._cd_horaFinal;
+			}
+			set
+			{
+				if ((this._cd_horaFinal != value))
+				{
+					this.Oncd_horaFinalChanging(value);
+					this.SendPropertyChanging();
+					this._cd_horaFinal = value;
+					this.SendPropertyChanged("cd_horaFinal");
+					this.Oncd_horaFinalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_trafego", DbType="Int NOT NULL")]
+		public int cd_trafego
+		{
+			get
+			{
+				return this._cd_trafego;
+			}
+			set
+			{
+				if ((this._cd_trafego != value))
+				{
+					this.Oncd_trafegoChanging(value);
+					this.SendPropertyChanging();
+					this._cd_trafego = value;
+					this.SendPropertyChanged("cd_trafego");
+					this.Oncd_trafegoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Turno_Turno_Cliente", Storage="_Turno_Clientes", ThisKey="id_turno", OtherKey="cd_turno")]
+		public EntitySet<Turno_Cliente> Turno_Clientes
+		{
+			get
+			{
+				return this._Turno_Clientes;
+			}
+			set
+			{
+				this._Turno_Clientes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Turno_Clientes(Turno_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Turno = this;
+		}
+		
+		private void detach_Turno_Clientes(Turno_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Turno = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Turno_Cliente")]
+	public partial class Turno_Cliente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_turno_cliente;
+		
+		private int _cd_cliente;
+		
+		private int _cd_turno;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+		private EntityRef<Turno> _Turno;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_turno_clienteChanging(int value);
+    partial void Onid_turno_clienteChanged();
+    partial void Oncd_clienteChanging(int value);
+    partial void Oncd_clienteChanged();
+    partial void Oncd_turnoChanging(int value);
+    partial void Oncd_turnoChanged();
+    #endregion
+		
+		public Turno_Cliente()
+		{
+			this._Cliente = default(EntityRef<Cliente>);
+			this._Turno = default(EntityRef<Turno>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_turno_cliente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_turno_cliente
+		{
+			get
+			{
+				return this._id_turno_cliente;
+			}
+			set
+			{
+				if ((this._id_turno_cliente != value))
+				{
+					this.Onid_turno_clienteChanging(value);
+					this.SendPropertyChanging();
+					this._id_turno_cliente = value;
+					this.SendPropertyChanged("id_turno_cliente");
+					this.Onid_turno_clienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_cliente", DbType="Int NOT NULL")]
+		public int cd_cliente
+		{
+			get
+			{
+				return this._cd_cliente;
+			}
+			set
+			{
+				if ((this._cd_cliente != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncd_clienteChanging(value);
+					this.SendPropertyChanging();
+					this._cd_cliente = value;
+					this.SendPropertyChanged("cd_cliente");
+					this.Oncd_clienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_turno", DbType="Int NOT NULL")]
+		public int cd_turno
+		{
+			get
+			{
+				return this._cd_turno;
+			}
+			set
+			{
+				if ((this._cd_turno != value))
+				{
+					if (this._Turno.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncd_turnoChanging(value);
+					this.SendPropertyChanging();
+					this._cd_turno = value;
+					this.SendPropertyChanged("cd_turno");
+					this.Oncd_turnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Turno_Cliente", Storage="_Cliente", ThisKey="cd_cliente", OtherKey="id_cliente", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Turno_Clientes.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Turno_Clientes.Add(this);
+						this._cd_cliente = value.id_cliente;
+					}
+					else
+					{
+						this._cd_cliente = default(int);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Turno_Turno_Cliente", Storage="_Turno", ThisKey="cd_turno", OtherKey="id_turno", IsForeignKey=true)]
+		public Turno Turno
+		{
+			get
+			{
+				return this._Turno.Entity;
+			}
+			set
+			{
+				Turno previousValue = this._Turno.Entity;
+				if (((previousValue != value) 
+							|| (this._Turno.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Turno.Entity = null;
+						previousValue.Turno_Clientes.Remove(this);
+					}
+					this._Turno.Entity = value;
+					if ((value != null))
+					{
+						value.Turno_Clientes.Add(this);
+						this._cd_turno = value.id_turno;
+					}
+					else
+					{
+						this._cd_turno = default(int);
+					}
+					this.SendPropertyChanged("Turno");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -2088,6 +2365,181 @@ namespace SOTRE.Domain
 					this._nm_senha = value;
 					this.SendPropertyChanged("nm_senha");
 					this.Onnm_senhaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Veiculo")]
+	public partial class Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_veiculo;
+		
+		private int _cd_status;
+		
+		private string _nm_nome;
+		
+		private double _capacidade;
+		
+		private EntityRef<Status_Veiculo> _Status_Veiculo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_veiculoChanging(int value);
+    partial void Onid_veiculoChanged();
+    partial void Oncd_statusChanging(int value);
+    partial void Oncd_statusChanged();
+    partial void Onnm_nomeChanging(string value);
+    partial void Onnm_nomeChanged();
+    partial void OncapacidadeChanging(double value);
+    partial void OncapacidadeChanged();
+    #endregion
+		
+		public Veiculo()
+		{
+			this._Status_Veiculo = default(EntityRef<Status_Veiculo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_veiculo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_veiculo
+		{
+			get
+			{
+				return this._id_veiculo;
+			}
+			set
+			{
+				if ((this._id_veiculo != value))
+				{
+					this.Onid_veiculoChanging(value);
+					this.SendPropertyChanging();
+					this._id_veiculo = value;
+					this.SendPropertyChanged("id_veiculo");
+					this.Onid_veiculoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_status", DbType="Int NOT NULL")]
+		public int cd_status
+		{
+			get
+			{
+				return this._cd_status;
+			}
+			set
+			{
+				if ((this._cd_status != value))
+				{
+					if (this._Status_Veiculo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncd_statusChanging(value);
+					this.SendPropertyChanging();
+					this._cd_status = value;
+					this.SendPropertyChanged("cd_status");
+					this.Oncd_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nm_nome", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nm_nome
+		{
+			get
+			{
+				return this._nm_nome;
+			}
+			set
+			{
+				if ((this._nm_nome != value))
+				{
+					this.Onnm_nomeChanging(value);
+					this.SendPropertyChanging();
+					this._nm_nome = value;
+					this.SendPropertyChanged("nm_nome");
+					this.Onnm_nomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_capacidade", DbType="Float NOT NULL")]
+		public double capacidade
+		{
+			get
+			{
+				return this._capacidade;
+			}
+			set
+			{
+				if ((this._capacidade != value))
+				{
+					this.OncapacidadeChanging(value);
+					this.SendPropertyChanging();
+					this._capacidade = value;
+					this.SendPropertyChanged("capacidade");
+					this.OncapacidadeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Veiculo_Veiculo", Storage="_Status_Veiculo", ThisKey="cd_status", OtherKey="id_status", IsForeignKey=true)]
+		public Status_Veiculo Status_Veiculo
+		{
+			get
+			{
+				return this._Status_Veiculo.Entity;
+			}
+			set
+			{
+				Status_Veiculo previousValue = this._Status_Veiculo.Entity;
+				if (((previousValue != value) 
+							|| (this._Status_Veiculo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Status_Veiculo.Entity = null;
+						previousValue.Veiculos.Remove(this);
+					}
+					this._Status_Veiculo.Entity = value;
+					if ((value != null))
+					{
+						value.Veiculos.Add(this);
+						this._cd_status = value.id_status;
+					}
+					else
+					{
+						this._cd_status = default(int);
+					}
+					this.SendPropertyChanged("Status_Veiculo");
 				}
 			}
 		}

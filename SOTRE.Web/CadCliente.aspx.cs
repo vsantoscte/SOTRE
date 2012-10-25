@@ -1,6 +1,12 @@
 ﻿using System;
 using SOTRE.Domain;
 using SOTRE.Domain.BLL;
+using SOTRE.Util.GoogleMaps;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Net;
+using System.IO;
+
 
 namespace SOTRE.Web
 {
@@ -39,7 +45,7 @@ namespace SOTRE.Web
         private void CarregarCompoTipo()
         {
             ddpTipo.DataSource = Util.Util.CarregarComboTipoPessoa();
-            ddpTipo.DataTextField = "nm_descricao_tipo";
+            ddpTipo.DataTextField = "nm_descricao";
             ddpTipo.DataValueField = "id_tipo";
             ddpTipo.DataBind();
         }
@@ -64,6 +70,10 @@ namespace SOTRE.Web
             cliente.nm_cep = this.txtCEP.Text;
             cliente.nm_cidade = this.txtCidade.Text;
 
+            Cordenada cordenada = Geocodificacao.GetCordenadas(this.FormataStringEndereco());
+            cliente.nm_latitude = cordenada.Latitude.ToString();
+            cliente.nm_longitude = cordenada.Longitude.ToString();
+
             if (this.Session["ID"] != null)
             {
                 cliente.id_cliente = int.Parse(this.Session["ID"].ToString());
@@ -75,6 +85,35 @@ namespace SOTRE.Web
             }
 
             Response.Redirect("PesqCliente.aspx");
+        }
+
+        private string FormataStringEndereco()
+        {
+            StringBuilder strAppend = new StringBuilder();
+            strAppend.Append(this.txtLogradouro.Text);
+
+            if (!string.IsNullOrEmpty(this.txtNumero.Text))
+            {
+                strAppend.Append(", ");
+                strAppend.Append(this.txtNumero.Text);
+            }
+
+            strAppend.Append(", ");
+            strAppend.Append(this.txtBairro.Text);
+            strAppend.Append(", ");
+            strAppend.Append(this.txtCidade.Text);
+            strAppend.Append(" - Bahia, Brasil");
+
+            return strAppend.ToString();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Cordenada c1 = new Cordenada(-12.90441060922158, -38.440848800000026);
+            Cordenada c2 = new Cordenada(-13.997361944488656, -42.476439500000026);
+
+            double d = Geocodificacao.DistanceTo(c1, c2);
+
         }
     }
 }

@@ -6,7 +6,7 @@ using SOTRE.Domain.DAO;
 
 namespace SOTRE.Domain.BLL
 {
-    public class StatusPedidoBLL : IBaseBLL<Tab_Tipo_Status>
+    public class StatusPedidoBLL : IBaseBLL<Status_Pedido>
     {
 
         StatusPedidoDAO statusDAO = null;
@@ -16,28 +16,28 @@ namespace SOTRE.Domain.BLL
             statusDAO = new StatusPedidoDAO();
         }
 
-        public void Inserir(Tab_Tipo_Status entidade)
+        public void Inserir(Status_Pedido entidade)
         {
             statusDAO.Inserir(entidade);
         }
 
-        public void Atualizar(Tab_Tipo_Status entidade)
+        public void Atualizar(Status_Pedido entidade)
         {
             statusDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
-            Tab_Tipo_Status tipoStatus = this.ObterPorID(ID);
+            Status_Pedido tipoStatus = this.ObterPorID(ID);
             statusDAO.Excluir(tipoStatus);
         }
 
-        public Tab_Tipo_Status ObterPorID(int ID)
+        public Status_Pedido ObterPorID(int ID)
         {
             return statusDAO.ObterPorID(ID);
         }
 
-        public IQueryable<Tab_Tipo_Status> ObterTodos()
+        public IQueryable<Status_Pedido> ObterTodos()
         {
             return statusDAO.ObterTodos();
         }

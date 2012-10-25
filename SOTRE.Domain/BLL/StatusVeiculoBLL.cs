@@ -6,7 +6,7 @@ using SOTRE.Domain.DAO;
 
 namespace SOTRE.Domain.BLL
 {
-    public class StatusVeiculoBLL : IBaseBLL<Tab_Tipo_Status_Veiculo>
+    public class StatusVeiculoBLL : IBaseBLL<Status_Veiculo>
     {
 
         StatusVeiculoDAO statusVeiculoDAO = null;
@@ -16,28 +16,28 @@ namespace SOTRE.Domain.BLL
             statusVeiculoDAO = new StatusVeiculoDAO();
         }
 
-        public void Inserir(Tab_Tipo_Status_Veiculo entidade)
+        public void Inserir(Status_Veiculo entidade)
         {
             statusVeiculoDAO.Inserir(entidade);
         }
 
-        public void Atualizar(Tab_Tipo_Status_Veiculo entidade)
+        public void Atualizar(Status_Veiculo entidade)
         {
             statusVeiculoDAO.Atualizar(entidade);
         }
 
         public void Excluir(int ID)
         {
-            Tab_Tipo_Status_Veiculo statusVeiculo = this.ObterPorID(ID);
+            Status_Veiculo statusVeiculo = this.ObterPorID(ID);
             statusVeiculoDAO.Excluir(statusVeiculo);
         }
 
-        public Tab_Tipo_Status_Veiculo ObterPorID(int ID)
+        public Status_Veiculo ObterPorID(int ID)
         {
             return statusVeiculoDAO.ObterPorID(ID);
         }
 
-        public IQueryable<Tab_Tipo_Status_Veiculo> ObterTodos()
+        public IQueryable<Status_Veiculo> ObterTodos()
         {
             return statusVeiculoDAO.ObterTodos();
         }

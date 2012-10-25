@@ -79,6 +79,7 @@
         </tr>
         <tr>
             <td align="right" colspan="3">
+                <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
                 <asp:Button ID="btnVoltar" runat="server" Text="Voltar" 
                     onclick="btnVoltar_Click"  />
             </td>

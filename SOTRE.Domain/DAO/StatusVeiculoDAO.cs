@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SOTRE.Domain.DAO
 {
-    internal class StatusVeiculoDAO : BaseDAO<Tab_Tipo_Status_Veiculo>
+    internal class StatusVeiculoDAO : BaseDAO<Status_Veiculo>
     {
     }
 }

@@ -18,7 +18,7 @@ namespace SOTRE.Util
 
             Tipo_Cliente tipoCliente = new Tipo_Cliente();
             tipoCliente.id_tipo = 0;
-            tipoCliente.nm_descricao_tipo = String.Empty;
+            tipoCliente.nm_descricao = String.Empty;
 
             lstTipoCliente.Add(tipoCliente);
 
@@ -51,20 +51,20 @@ namespace SOTRE.Util
             return lstCliente;
         }
 
-        public static List<Tab_Tipo_Status> CarregarComboStatus()
+        public static List<Status_Pedido> CarregarComboStatus()
         {
-            IQueryable<Tab_Tipo_Status> query = new StatusPedidoBLL().ObterTodos();
+            IQueryable<Status_Pedido> query = new StatusPedidoBLL().ObterTodos();
 
-            List<Tab_Tipo_Status> lstStatusAux = query.ToList<Tab_Tipo_Status>();
-            List<Tab_Tipo_Status> lstStatus = new List<Tab_Tipo_Status>();
+            List<Status_Pedido> lstStatusAux = query.ToList<Status_Pedido>();
+            List<Status_Pedido> lstStatus = new List<Status_Pedido>();
 
-            Tab_Tipo_Status status = new Tab_Tipo_Status();
+            Status_Pedido status = new Status_Pedido();
             status.id_status = 0;
             status.nm_descricao = String.Empty;
 
             lstStatus.Add(status);
 
-            foreach (Tab_Tipo_Status objStatus in lstStatusAux)
+            foreach (Status_Pedido objStatus in lstStatusAux)
             {
                 lstStatus.Add(objStatus);
             }
@@ -93,20 +93,20 @@ namespace SOTRE.Util
             return lstProduto;
         }
 
-        public static List<Tab_Tipo_Status_Veiculo> CarregarComboStatusVeiculo()
+        public static List<Status_Veiculo> CarregarComboStatusVeiculo()
         {
-            IQueryable<Tab_Tipo_Status_Veiculo> query = new StatusVeiculoBLL().ObterTodos();
+            IQueryable<Status_Veiculo> query = new StatusVeiculoBLL().ObterTodos();
 
-            List<Tab_Tipo_Status_Veiculo> lstAux = query.ToList<Tab_Tipo_Status_Veiculo>();
-            List<Tab_Tipo_Status_Veiculo> lstStatusVeiculo = new List<Tab_Tipo_Status_Veiculo>();
+            List<Status_Veiculo> lstAux = query.ToList<Status_Veiculo>();
+            List<Status_Veiculo> lstStatusVeiculo = new List<Status_Veiculo>();
 
-            Tab_Tipo_Status_Veiculo tipoStatusVeiculo = new Tab_Tipo_Status_Veiculo();
+            Status_Veiculo tipoStatusVeiculo = new Status_Veiculo();
             tipoStatusVeiculo.id_status = 0;
             tipoStatusVeiculo.nm_descricao = "";
 
             lstStatusVeiculo.Add(tipoStatusVeiculo);
 
-            foreach (Tab_Tipo_Status_Veiculo objStatusVeiculo in lstAux)
+            foreach (Status_Veiculo objStatusVeiculo in lstAux)
             {
                 lstStatusVeiculo.Add(objStatusVeiculo);
             }
