@@ -1,11 +1,13 @@
 ﻿using System;
 using SOTRE.Domain;
 using SOTRE.Domain.BLL;
-using SOTRE.Util.GoogleMaps;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using SOTRE.Util.GoogleMaps;
 
 
 namespace SOTRE.Web
@@ -74,14 +76,66 @@ namespace SOTRE.Web
             cliente.nm_latitude = cordenada.Latitude.ToString();
             cliente.nm_longitude = cordenada.Longitude.ToString();
 
+            IQueryable<Cliente> queryClientes = clienteBLL.ObterTodos();
+            List<Cliente> lstCliente = queryClientes.ToList<Cliente>();
+
+            Cordenada novaCordenada = new Cordenada();
+            ViagemBLL viagemBLL = new ViagemBLL();
+
+            Viagem viagem = new Viagem();
+
             if (this.Session["ID"] != null)
             {
                 cliente.id_cliente = int.Parse(this.Session["ID"].ToString());
                 clienteBLL.Atualizar(cliente);
+
+                foreach (Cliente objCliente in lstCliente)
+                {
+                    novaCordenada.Latitude = Convert.ToDouble(objCliente.nm_latitude);
+                    novaCordenada.Longitude = Util.Util.ConverterCordenadasToDouble(objCliente.nm_longitude.Replace(",", "."));
+
+                    if (!((cordenada.Latitude == novaCordenada.Latitude) && (cordenada.Longitude == novaCordenada.Longitude)))
+                    {
+                        viagem = Geocodificacao.ObterDistanciaEDuracao(cordenada, novaCordenada);
+                        viagem.cd_partida = int.Parse(this.Session["ID"].ToString());
+                        viagem.cd_destino = objCliente.id_cliente;
+
+                        viagemBLL.Inserir(viagem);
+
+                        viagem = Geocodificacao.ObterDistanciaEDuracao(novaCordenada, cordenada);
+                        viagem.cd_partida = objCliente.id_cliente;
+                        viagem.cd_destino = int.Parse(this.Session["ID"].ToString());
+
+                        viagemBLL.Inserir(viagem);
+                    }
+                }
             }
             else
             {
                 clienteBLL.Inserir(cliente);
+
+                cliente = clienteBLL.ObterTodos().Where(w => w.nm_cpf_cnpj == cliente.nm_cpf_cnpj).ToList<Cliente>()[0];
+
+                foreach (Cliente objCliente in lstCliente)
+                {
+                    novaCordenada.Latitude = Convert.ToDouble(objCliente.nm_latitude);
+                    novaCordenada.Longitude = Util.Util.ConverterCordenadasToDouble(objCliente.nm_longitude.Replace(",", "."));
+
+                    if (!((cordenada.Latitude == novaCordenada.Latitude) && (cordenada.Longitude == novaCordenada.Longitude)))
+                    {
+                        viagem = Geocodificacao.ObterDistanciaEDuracao(cordenada, novaCordenada);
+                        viagem.cd_partida = cliente.id_cliente;
+                        viagem.cd_destino = objCliente.id_cliente;
+
+                        viagemBLL.Inserir(viagem);
+
+                        viagem = Geocodificacao.ObterDistanciaEDuracao(novaCordenada, cordenada);
+                        viagem.cd_partida = objCliente.id_cliente;
+                        viagem.cd_destino = cliente.id_cliente;
+
+                        viagemBLL.Inserir(viagem);
+                    }
+                }
             }
 
             Response.Redirect("PesqCliente.aspx");
@@ -105,15 +159,6 @@ namespace SOTRE.Web
             strAppend.Append(" - Bahia, Brasil");
 
             return strAppend.ToString();
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Cordenada c1 = new Cordenada(-12.90441060922158, -38.440848800000026);
-            Cordenada c2 = new Cordenada(-13.997361944488656, -42.476439500000026);
-
-            double d = Geocodificacao.DistanceTo(c1, c2);
-
         }
     }
 }

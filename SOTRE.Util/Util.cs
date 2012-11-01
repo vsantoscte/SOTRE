@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SOTRE.Domain;
 using SOTRE.Domain.BLL;
+using System.Globalization;
 
 namespace SOTRE.Util
 {
@@ -112,6 +113,13 @@ namespace SOTRE.Util
             }
 
             return lstStatusVeiculo;
+        }
+
+        public static double ConverterCordenadasToDouble(string cordenada)
+        {
+            CultureInfo cultura = new CultureInfo("en-US", true);
+
+            return Convert.ToDouble(cordenada, cultura);    
         }
 
     }

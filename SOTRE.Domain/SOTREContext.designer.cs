@@ -233,8 +233,6 @@ namespace SOTRE.Domain
 		
 		private EntitySet<Turno_Cliente> _Turno_Clientes;
 		
-		private EntityRef<Tipo_Cliente> _Tipo_Cliente;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -271,7 +269,6 @@ namespace SOTRE.Domain
 			this._Viagems1 = new EntitySet<Viagem>(new Action<Viagem>(this.attach_Viagems1), new Action<Viagem>(this.detach_Viagems1));
 			this._Pedidos = new EntitySet<Pedido>(new Action<Pedido>(this.attach_Pedidos), new Action<Pedido>(this.detach_Pedidos));
 			this._Turno_Clientes = new EntitySet<Turno_Cliente>(new Action<Turno_Cliente>(this.attach_Turno_Clientes), new Action<Turno_Cliente>(this.detach_Turno_Clientes));
-			this._Tipo_Cliente = default(EntityRef<Tipo_Cliente>);
 			OnCreated();
 		}
 		
@@ -426,10 +423,6 @@ namespace SOTRE.Domain
 			{
 				if ((this._cd_tipo != value))
 				{
-					if (this._Tipo_Cliente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.Oncd_tipoChanging(value);
 					this.SendPropertyChanging();
 					this._cd_tipo = value;
@@ -571,40 +564,6 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Cliente_Cliente", Storage="_Tipo_Cliente", ThisKey="cd_tipo", OtherKey="id_tipo", IsForeignKey=true)]
-		public Tipo_Cliente Tipo_Cliente
-		{
-			get
-			{
-				return this._Tipo_Cliente.Entity;
-			}
-			set
-			{
-				Tipo_Cliente previousValue = this._Tipo_Cliente.Entity;
-				if (((previousValue != value) 
-							|| (this._Tipo_Cliente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tipo_Cliente.Entity = null;
-						previousValue.Clientes.Remove(this);
-					}
-					this._Tipo_Cliente.Entity = value;
-					if ((value != null))
-					{
-						value.Clientes.Add(this);
-						this._cd_tipo = value.id_tipo;
-					}
-					else
-					{
-						this._cd_tipo = default(int);
-					}
-					this.SendPropertyChanged("Tipo_Cliente");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -686,9 +645,9 @@ namespace SOTRE.Domain
 		
 		private int _cd_destino;
 		
-		private double _cd_duracao;
+		private long _cd_duracao;
 		
-		private double _cd_distancia;
+		private long _cd_distancia;
 		
 		private EntityRef<Cliente> _Cliente;
 		
@@ -704,9 +663,9 @@ namespace SOTRE.Domain
     partial void Oncd_partidaChanged();
     partial void Oncd_destinoChanging(int value);
     partial void Oncd_destinoChanged();
-    partial void Oncd_duracaoChanging(double value);
+    partial void Oncd_duracaoChanging(long value);
     partial void Oncd_duracaoChanged();
-    partial void Oncd_distanciaChanging(double value);
+    partial void Oncd_distanciaChanging(long value);
     partial void Oncd_distanciaChanged();
     #endregion
 		
@@ -785,8 +744,8 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_duracao", DbType="Float NOT NULL")]
-		public double cd_duracao
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_duracao", DbType="BigInt NOT NULL")]
+		public long cd_duracao
 		{
 			get
 			{
@@ -805,8 +764,8 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_distancia", DbType="Float NOT NULL")]
-		public double cd_distancia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cd_distancia", DbType="BigInt NOT NULL")]
+		public long cd_distancia
 		{
 			get
 			{
@@ -1774,8 +1733,6 @@ namespace SOTRE.Domain
 		
 		private string _nm_descricao;
 		
-		private EntitySet<Cliente> _Clientes;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1788,7 +1745,6 @@ namespace SOTRE.Domain
 		
 		public Tipo_Cliente()
 		{
-			this._Clientes = new EntitySet<Cliente>(new Action<Cliente>(this.attach_Clientes), new Action<Cliente>(this.detach_Clientes));
 			OnCreated();
 		}
 		
@@ -1832,19 +1788,6 @@ namespace SOTRE.Domain
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Cliente_Cliente", Storage="_Clientes", ThisKey="id_tipo", OtherKey="cd_tipo")]
-		public EntitySet<Cliente> Clientes
-		{
-			get
-			{
-				return this._Clientes;
-			}
-			set
-			{
-				this._Clientes.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1863,18 +1806,6 @@ namespace SOTRE.Domain
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Clientes(Cliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tipo_Cliente = this;
-		}
-		
-		private void detach_Clientes(Cliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tipo_Cliente = null;
 		}
 	}
 	

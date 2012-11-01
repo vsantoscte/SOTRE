@@ -18,7 +18,6 @@
       <Association Name="Cliente_Viagem1" Member="Viagems1" ThisKey="id_cliente" OtherKey="cd_destino" Type="Viagem" />
       <Association Name="Cliente_Pedido" Member="Pedidos" ThisKey="id_cliente" OtherKey="cd_cliente" Type="Pedido" />
       <Association Name="Cliente_Turno_Cliente" Member="Turno_Clientes" ThisKey="id_cliente" OtherKey="cd_cliente" Type="Turno_Cliente" />
-      <Association Name="Tipo_Cliente_Cliente" Member="Tipo_Cliente" ThisKey="cd_tipo" OtherKey="id_tipo" Type="Tipo_Cliente" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Viagem" Member="Viagems">
@@ -26,8 +25,8 @@
       <Column Name="id_caminho" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cd_partida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="cd_destino" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cd_duracao" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="cd_distancia" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="cd_duracao" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="cd_distancia" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Association Name="Cliente_Viagem" Member="Cliente" ThisKey="cd_partida" OtherKey="id_cliente" Type="Cliente" IsForeignKey="true" />
       <Association Name="Cliente_Viagem1" Member="Cliente1" ThisKey="cd_destino" OtherKey="id_cliente" Type="Cliente" IsForeignKey="true" />
     </Type>
@@ -80,7 +79,6 @@
     <Type Name="Tipo_Cliente">
       <Column Name="id_tipo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nm_descricao" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="Tipo_Cliente_Cliente" Member="Clientes" ThisKey="id_tipo" OtherKey="cd_tipo" Type="Cliente" />
     </Type>
   </Table>
   <Table Name="dbo.Turno" Member="Turnos">

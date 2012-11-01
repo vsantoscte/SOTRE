@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
+using System.Linq;
 using System.Net;
-using System.Security.Policy; 
+using System.Web;
+using System.Xml;
+using System.Xml.Linq;
+using SOTRE.Domain;
 
 namespace SOTRE.Util.GoogleMaps
 {
@@ -41,31 +42,24 @@ namespace SOTRE.Util.GoogleMaps
             */
             string[] geocodeInfo = client.DownloadString(uri).Split(',');
 
-            return new Cordenada(Convert.ToDouble(geocodeInfo[2]), Convert.ToDouble(geocodeInfo[3]));
+            return new Cordenada(Util.ConverterCordenadasToDouble(geocodeInfo[2]), Util.ConverterCordenadasToDouble(geocodeInfo[3]));
         }
 
-        public static double DistanceTo(this Cordenada from, Cordenada to)
+        public static Viagem ObterDistanciaEDuracao(Cordenada origem, Cordenada destino)
         {
-            // Haversine Formula...  
-            var dLat1InRad = from.Latitude * (Math.PI / 180.0);
-            var dLong1InRad = from.Longitude * (Math.PI / 180.0);
-            var dLat2InRad = to.Latitude * (Math.PI / 180.0);
-            var dLong2InRad = to.Longitude * (Math.PI / 180.0);
+            WebRequest webrequest = WebRequest.Create(string.Format("http://maps.google.es/maps/api/directions/xml?origin={0},{1}&destination={2},{3}&sensor=true", origem.Latitude.ToString().Replace(",", "."), origem.Longitude.ToString().Replace(",", "."), destino.Latitude.ToString().Replace(",", "."), destino.Longitude.ToString().Replace(",", ".")));
 
-            var dLongitude = dLong2InRad - dLong1InRad;
-            var dLatitude = dLat2InRad - dLat1InRad;
+            XmlTextReader reader = new XmlTextReader(webrequest.GetResponse().GetResponseStream());
 
-            // Intermediate result a.  
-            var a = Math.Pow(Math.Sin(dLatitude / 2.0), 2.0) +
-                    Math.Cos(dLat1InRad) * Math.Cos(dLat2InRad) *
-                    Math.Pow(Math.Sin(dLongitude / 2.0), 2.0);
+            XElement xdoc = XElement.Load(reader);
 
-            // Intermediate result c (great circle distance in Radians).  
-            var c = 2.0 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1.0 - a));
+            Viagem viagem = new Viagem();
 
-            // Unit of measurement  
-            var radius = 6371;
-            return radius * c;
+            viagem.cd_distancia = Convert.ToInt64(xdoc.Elements("route").Elements("leg").Elements("distance").Elements("value").First().Value);
+            viagem.cd_duracao = Convert.ToInt64(xdoc.Elements("route").Elements("leg").Elements("duration").Elements("value").First().Value);
+
+            return viagem;
+
         }
     }
 }

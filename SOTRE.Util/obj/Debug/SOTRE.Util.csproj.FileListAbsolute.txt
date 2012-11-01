@@ -5,3 +5,10 @@ C:\Users\victor.ledo\Documents\Visual Studio 2010\Projects\SOTRE\SOTRE.Util\bin\
 C:\Users\victor.ledo\Documents\Visual Studio 2010\Projects\SOTRE\SOTRE.Util\bin\Debug\SOTRE.Domain.pdb
 C:\Users\victor.ledo\Documents\Visual Studio 2010\Projects\SOTRE\SOTRE.Util\obj\Debug\SOTRE.Util.dll
 C:\Users\victor.ledo\Documents\Visual Studio 2010\Projects\SOTRE\SOTRE.Util\obj\Debug\SOTRE.Util.pdb
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\bin\Debug\SOTRE.Util.dll
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\bin\Debug\SOTRE.Util.pdb
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\bin\Debug\SOTRE.Domain.dll
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\bin\Debug\SOTRE.Domain.pdb
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\obj\Debug\SOTRE.Util.dll
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Util\obj\Debug\SOTRE.Util.pdb

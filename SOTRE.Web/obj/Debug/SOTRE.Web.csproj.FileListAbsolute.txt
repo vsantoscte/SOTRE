@@ -37,6 +37,8 @@ C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\obj\Debug\ResolveAssemblyRefer
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Web.dll
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Web.pdb
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Domain.dll
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Util.dll
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Domain.pdb
+C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\bin\SOTRE.Util.pdb
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.dll
 C:\Users\Ana Lis\Documents\GitHub\SOTRE\SOTRE.Web\obj\Debug\SOTRE.Web.pdb
