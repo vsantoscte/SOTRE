@@ -22,16 +22,12 @@ namespace SOTRE.Web
 
         private void CarregarTela()
         {
+            PedidoBLL pedidoBLL = new PedidoBLL();
             List<PedidoGrid> lstPedidoGrid = new List<PedidoGrid>();
-            IQueryable<Pedido> iqPedido = new PedidoBLL().ObterTodos();
+            IQueryable<Pedido> iqPedido = pedidoBLL.ObterTodos();
             PedidoGrid pedidoGrid = null;
             ClienteBLL clienteBLL = new ClienteBLL();
             StatusPedidoBLL statusPedidoBLL = new StatusPedidoBLL();
-            DemandaBLL demandaBLL = new DemandaBLL();
-            ProdutoBLL produtoBLL = new ProdutoBLL();
-            List<Demanda> lstDemanda = null;
-            double capacidade = 0;
-            Produto produto = null;
 
             foreach (Pedido pedido in iqPedido.ToList<Pedido>())
             {
@@ -41,15 +37,7 @@ namespace SOTRE.Web
                 pedidoGrid.Cliente = clienteBLL.ObterPorID(pedido.cd_cliente).nm_nome;
                 pedidoGrid.Status = statusPedidoBLL.ObterPorID(pedido.cd_status).nm_descricao;
 
-                lstDemanda = demandaBLL.ObterTodos().Where<Demanda>(w => w.cd_pedido == pedido.id_pedido).ToList<Demanda>();
-
-                foreach (Demanda objDemanda in lstDemanda)
-                {
-                    produto = produtoBLL.ObterPorID(objDemanda.cd_produto);
-                    capacidade += (objDemanda.qtd_produto * produto.cd_espaco_ocupado);
-                }
-
-                pedidoGrid.Espaco = capacidade;
+                pedidoGrid.Espaco = pedidoBLL.CalculaPesoTotalPedido(pedido.id_pedido);
 
                 lstPedidoGrid.Add(pedidoGrid);
             }

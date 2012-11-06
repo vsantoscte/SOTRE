@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE\Gene.cs" />
+    <Compile Include="BE\Individuo.cs" />
     <Compile Include="BLL\AlgoritimoGenetico.cs" />
     <Compile Include="BLL\ClienteBLL.cs" />
     <Compile Include="BLL\DemandaBLL.cs" />
@@ -96,6 +99,9 @@
     <None Include="SOTREContext.dbml.layout">
       <DependentUpon>SOTREContext.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

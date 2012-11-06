@@ -220,6 +220,12 @@
     <Content Include="Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SOTRE.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\SOTRE.Default\SORTRE.skin" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SOTRE.Domain\SOTRE.Domain.csproj">
       <Project>{80221D6B-5EBF-439F-AF24-19E1E63C4E85}</Project>
       <Name>SOTRE.Domain</Name>
@@ -228,12 +234,6 @@
       <Project>{FF70FA6D-4D4C-401C-BA1C-7DAC9F626C0F}</Project>
       <Name>SOTRE.Util</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SOTRE.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Themes\SOTRE.Default\SORTRE.skin" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

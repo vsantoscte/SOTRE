@@ -45,5 +45,22 @@ namespace SOTRE.Domain.BLL
         {
             return pedidoDAO.RetornarUltimoPedido();
         }
+
+        public double CalculaPesoTotalPedido(int ID)
+        {
+            DemandaBLL demandaBLL = new DemandaBLL();
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+            double capacidade = 0;
+            Produto produto = null;
+            List<Demanda> lstDemanda = demandaBLL.ObterTodos().Where<Demanda>(w => w.cd_pedido == ID).ToList<Demanda>();
+
+            foreach (Demanda objDemanda in lstDemanda)
+            {
+                produto = produtoBLL.ObterPorID(objDemanda.cd_produto);
+                capacidade += (objDemanda.qtd_produto * produto.cd_espaco_ocupado);
+            }
+
+            return capacidade;
+        }
     }
 }

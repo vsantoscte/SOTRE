@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemandaGrid.cs" />
-    <Compile Include="Gene.cs" />
     <Compile Include="GoogleMaps\Cordenada.cs" />
     <Compile Include="GoogleMaps\Geocodificacao.cs" />
     <Compile Include="PedidoGrid.cs" />
