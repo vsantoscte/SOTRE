@@ -61,6 +61,11 @@ namespace SOTRE.Web
         {
             Cliente cliente = new Cliente();
             ClienteBLL clienteBLL = new ClienteBLL();
+            List<Turno_Cliente> lstTurnoCliente = new List<Turno_Cliente>();
+            Turno_Cliente turnoCliente = new Turno_Cliente();
+            TurnoClienteBLL turnoClienteBLL = new TurnoClienteBLL();
+            List<Turno> lstTurno = new List<Turno>();
+            TurnoBLL turnoBLL = new TurnoBLL();
 
             cliente.nm_nome = this.txtNome.Text;
             cliente.nm_cpf_cnpj = this.txtCpf.Text;
@@ -72,24 +77,64 @@ namespace SOTRE.Web
             cliente.nm_cep = this.txtCEP.Text;
             cliente.nm_cidade = this.txtCidade.Text;
 
+
+            IQueryable<Turno> queryTurno = turnoBLL.ObterTodos();
+
             if (chkManha.Checked)
             {
-                
+                lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 6 && w.cd_horaInicial <= 11).ToList<Turno>();
+
+                foreach (Turno item in lstTurno)
+                {
+                    turnoCliente.cd_turno = item.id_turno;
+
+                    lstTurnoCliente.Add(turnoCliente);
+                }
+
+                lstTurno.Clear();
             }
 
             if (chkTarde.Checked)
             {
+                lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 12 && w.cd_horaInicial <= 17).ToList<Turno>();
 
+                foreach (Turno item in lstTurno)
+                {
+                    turnoCliente.cd_turno = item.id_turno;
+
+                    lstTurnoCliente.Add(turnoCliente);
+                }
+
+                lstTurno.Clear();
             }
 
             if (chkNoite.Checked)
             {
+                lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 18 && w.cd_horaInicial <= 23).ToList<Turno>();
+
+                foreach (Turno item in lstTurno)
+                {
+                    turnoCliente.cd_turno = item.id_turno;
+
+                    lstTurnoCliente.Add(turnoCliente);
+                }
+
+                lstTurno.Clear();
 
             }
 
             if (chkMadrugada.Checked)
             {
+                lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 0 && w.cd_horaInicial <= 5).ToList<Turno>();
 
+                foreach (Turno item in lstTurno)
+                {
+                    turnoCliente.cd_turno = item.id_turno;
+
+                    lstTurnoCliente.Add(turnoCliente);
+                }
+
+                lstTurno.Clear();
             }
 
             Cordenada cordenada = Geocodificacao.GetCordenadas(this.FormataStringEndereco());
@@ -103,11 +148,28 @@ namespace SOTRE.Web
             ViagemBLL viagemBLL = new ViagemBLL();
 
             Viagem viagem = new Viagem();
+            List<Turno_Cliente> lstTurnoClienteExcluir = new List<Turno_Cliente>();
+            IQueryable<Turno_Cliente> queryTurnoCliente = turnoClienteBLL.ObterTodos();
+
 
             if (this.Session["ID"] != null)
             {
                 cliente.id_cliente = int.Parse(this.Session["ID"].ToString());
                 clienteBLL.Atualizar(cliente);
+
+                lstTurnoClienteExcluir = queryTurnoCliente.Where(w => w.cd_cliente == cliente.id_cliente).ToList<Turno_Cliente>();
+
+                foreach (Turno_Cliente item in lstTurnoClienteExcluir)
+                {
+                    turnoClienteBLL.Excluir(item.id_turno_cliente);
+                }
+
+                foreach (Turno_Cliente item in lstTurnoCliente)
+                {
+                    item.cd_cliente = cliente.id_cliente;
+                    turnoClienteBLL.Inserir(item);
+                }
+
 
                 foreach (Cliente objCliente in lstCliente)
                 {
@@ -129,12 +191,19 @@ namespace SOTRE.Web
                         viagemBLL.Inserir(viagem);
                     }
                 }
+
             }
             else
             {
                 clienteBLL.Inserir(cliente);
 
                 cliente = clienteBLL.ObterTodos().Where(w => w.nm_cpf_cnpj == cliente.nm_cpf_cnpj).ToList<Cliente>()[0];
+
+                foreach (Turno_Cliente item in lstTurnoCliente)
+                {
+                    item.cd_cliente = cliente.id_cliente;
+                    turnoClienteBLL.Inserir(item);
+                }
 
                 foreach (Cliente objCliente in lstCliente)
                 {
