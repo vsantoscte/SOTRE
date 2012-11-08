@@ -78,14 +78,22 @@
             </td>
         </tr>
         <tr>
-            <td align="right" colspan="3">
-
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" 
-                    onclick="btnVoltar_Click"  />
+            <td>
+                <asp:Label ID="lblTurno" runat="server">Turno:</asp:Label>
             </td>
-            <td align="left" >
-                <asp:Button ID="btnSalvar" runat="server" Text="Salvar" 
-                    onclick="btnSalvar_Click"  />
+            <td>
+                <asp:CheckBox ID="chkManha" Text="Manhã(6hrs às 12hrs)" runat="server" />
+                <asp:CheckBox ID="chkTarde" Text="Tarde(12hrs às 18hrs)" runat="server" />
+                <asp:CheckBox ID="chkNoite" Text="Noite(18hrs às 0hrs)" runat="server" />
+                <asp:CheckBox ID="chkMadrugada" Text="Madrugada(0hrs às 6hrs)" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right" colspan="3">
+                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+            </td>
+            <td align="left">
+                <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
             </td>
         </tr>
     </table>

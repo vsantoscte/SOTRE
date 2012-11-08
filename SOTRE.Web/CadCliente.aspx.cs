@@ -72,6 +72,26 @@ namespace SOTRE.Web
             cliente.nm_cep = this.txtCEP.Text;
             cliente.nm_cidade = this.txtCidade.Text;
 
+            if (chkManha.Checked)
+            {
+                
+            }
+
+            if (chkTarde.Checked)
+            {
+
+            }
+
+            if (chkNoite.Checked)
+            {
+
+            }
+
+            if (chkMadrugada.Checked)
+            {
+
+            }
+
             Cordenada cordenada = Geocodificacao.GetCordenadas(this.FormataStringEndereco());
             cliente.nm_latitude = cordenada.Latitude.ToString();
             cliente.nm_longitude = cordenada.Longitude.ToString();

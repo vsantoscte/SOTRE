@@ -15,13 +15,17 @@ namespace SOTRE.Domain.BLL
 
         public void AvaliarQualidadeIndividuo(Individuo individuo)
         {
+            bool boolCapacidade = true;
+
             foreach (Gene item in individuo.Cromossomos)
             {
                 //Verifica se a capacidade do veiculo está correta
-                if (VerificaCompatibilidadeCapacidade(item.lstPedido, item.Veiculo.capacidade)
+                if (!(VerificaCompatibilidadeCapacidade(item.lstPedido, item.Veiculo.capacidade)))
                 {
-                    
+                    boolCapacidade = false;
                 }
+
+
             }
         }
 
@@ -39,7 +43,7 @@ namespace SOTRE.Domain.BLL
                 return true;
             }
 
-            return false;
+            return false; 
         }
 
         #region Métodos Poupulação Inicial

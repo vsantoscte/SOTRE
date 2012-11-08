@@ -20,6 +20,8 @@ namespace SOTRE.Web
         {
 
             List<Individuo> lst = new AlgoritimoGenetico().CriarPopulacaoInicial();
+
+            new AlgoritimoGenetico().AvaliarQualidadeIndividuo(lst[0]);
         }
     }
 }
