@@ -19,9 +19,21 @@ namespace SOTRE.Web
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            List<Individuo> lst = new AlgoritimoGenetico().CriarPopulacaoInicial();
+            AlgoritimoGenetico alg = new AlgoritimoGenetico();
 
-            new AlgoritimoGenetico().AvaliarQualidadeIndividuo(lst[0]);
+            List<Individuo> lst = alg.CriarPopulacaoInicial();
+
+            foreach (Individuo item in lst)
+            {
+                alg.AvaliarQualidadeIndividuo(item);
+            }
+
+            List<Individuo> novaLista = alg.Elitismo(lst);
+
+            foreach (Individuo item in novaLista)
+            {
+                lst.Remove(item);
+            }
         }
     }
 }

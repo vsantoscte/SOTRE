@@ -53,6 +53,8 @@
     <Compile Include="BLL\StatusPedidoBLL.cs" />
     <Compile Include="BLL\StatusVeiculoBLL.cs" />
     <Compile Include="BLL\TipoClienteBLL.cs" />
+    <Compile Include="BLL\TurnoBLL.cs" />
+    <Compile Include="BLL\TurnoClienteBLL.cs" />
     <Compile Include="BLL\VeiculoBLL.cs" />
     <Compile Include="BLL\ViagemBLL.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
@@ -64,6 +66,8 @@
     <Compile Include="DAO\StatusPedidoDAO.cs" />
     <Compile Include="DAO\StatusVeiculoDAO.cs" />
     <Compile Include="DAO\TipoClienteDAO.cs" />
+    <Compile Include="DAO\TurnoClienteDAO.cs" />
+    <Compile Include="DAO\TurnoDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="DAO\ViagemDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

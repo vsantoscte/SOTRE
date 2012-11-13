@@ -36,9 +36,20 @@ namespace SOTRE.Web
 
         protected void imgDeletar_Click(object sender, ImageClickEventArgs e)
         {
+            int cd_cliente = int.Parse(((ImageButton)sender).CommandArgument);
             ClienteBLL clienteBLL = new ClienteBLL();
+            TurnoClienteBLL turnoClienteBLL = new TurnoClienteBLL();
+            List<Turno_Cliente> lstTurnoClienteExcluir = new List<Turno_Cliente>();
+            IQueryable<Turno_Cliente> queryTurnoCliente = turnoClienteBLL.ObterTodos();
 
-            clienteBLL.Excluir(int.Parse(((ImageButton)sender).CommandArgument));
+            lstTurnoClienteExcluir = queryTurnoCliente.Where(w => w.cd_cliente == cd_cliente).ToList<Turno_Cliente>();
+
+            foreach (Turno_Cliente item in lstTurnoClienteExcluir)
+            {
+                turnoClienteBLL.Excluir(item.id_turno_cliente);
+            }
+
+            clienteBLL.Excluir(cd_cliente);
 
             this.CarregarTelaCliente();
         }

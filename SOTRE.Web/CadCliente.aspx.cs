@@ -33,6 +33,26 @@ namespace SOTRE.Web
         {
             Cliente cliente = new ClienteBLL().ObterPorID(ID);
 
+            if (VerificarExistenciaTurno(cliente.id_cliente, 6, 11) > 0)
+            {
+                chkManha.Checked = true;
+            }
+
+            if (VerificarExistenciaTurno(cliente.id_cliente, 12, 17) > 0)
+            {
+                chkTarde.Checked = true;
+            }
+
+            if (VerificarExistenciaTurno(cliente.id_cliente, 18, 23) > 0)
+            {
+                chkNoite.Checked = true;
+            }
+
+            if (VerificarExistenciaTurno(cliente.id_cliente, 0, 5) > 0)
+            {
+                chkMadrugada.Checked = true;
+            }
+
             this.txtNome.Text = cliente.nm_nome;
             this.ddpTipo.SelectedValue = cliente.cd_tipo.ToString();
             this.txtCpf.Text = cliente.nm_cpf_cnpj;
@@ -42,6 +62,24 @@ namespace SOTRE.Web
             this.txtBairro.Text = cliente.nm_bairro;
             this.txtCEP.Text = cliente.nm_cep;
             this.txtCidade.Text = cliente.nm_cidade;
+        }
+
+        private int VerificarExistenciaTurno(int idCliente, int horaInicial1, int horaInicial2)
+        {
+            TurnoClienteBLL turnoClienteBLL = new TurnoClienteBLL();
+            TurnoBLL turnoBLL = new TurnoBLL();
+
+            IQueryable<Turno_Cliente> queryTurnoCliente = turnoClienteBLL.ObterTodos();
+            IQueryable<Turno> queryTurno = turnoBLL.ObterTodos();
+
+            return (from tc in queryTurnoCliente
+                    join t in queryTurno on tc.cd_turno equals t.id_turno
+                    select new
+                    {
+                        ID = t.id_turno,
+                        IdCliente = tc.cd_cliente,
+                        HoraInicial = t.cd_horaInicial
+                    }).Where(w => w.IdCliente == idCliente && w.HoraInicial >= horaInicial1 && w.HoraInicial <= horaInicial2).ToList().Count;
         }
 
         private void CarregarCompoTipo()
@@ -62,7 +100,7 @@ namespace SOTRE.Web
             Cliente cliente = new Cliente();
             ClienteBLL clienteBLL = new ClienteBLL();
             List<Turno_Cliente> lstTurnoCliente = new List<Turno_Cliente>();
-            Turno_Cliente turnoCliente = new Turno_Cliente();
+            Turno_Cliente turnoCliente = null;
             TurnoClienteBLL turnoClienteBLL = new TurnoClienteBLL();
             List<Turno> lstTurno = new List<Turno>();
             TurnoBLL turnoBLL = new TurnoBLL();
@@ -84,12 +122,7 @@ namespace SOTRE.Web
             {
                 lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 6 && w.cd_horaInicial <= 11).ToList<Turno>();
 
-                foreach (Turno item in lstTurno)
-                {
-                    turnoCliente.cd_turno = item.id_turno;
-
-                    lstTurnoCliente.Add(turnoCliente);
-                }
+                lstTurnoCliente = PreencherTurnoCliente(lstTurno, lstTurnoCliente);
 
                 lstTurno.Clear();
             }
@@ -98,12 +131,7 @@ namespace SOTRE.Web
             {
                 lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 12 && w.cd_horaInicial <= 17).ToList<Turno>();
 
-                foreach (Turno item in lstTurno)
-                {
-                    turnoCliente.cd_turno = item.id_turno;
-
-                    lstTurnoCliente.Add(turnoCliente);
-                }
+                lstTurnoCliente = PreencherTurnoCliente(lstTurno, lstTurnoCliente);
 
                 lstTurno.Clear();
             }
@@ -112,12 +140,7 @@ namespace SOTRE.Web
             {
                 lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 18 && w.cd_horaInicial <= 23).ToList<Turno>();
 
-                foreach (Turno item in lstTurno)
-                {
-                    turnoCliente.cd_turno = item.id_turno;
-
-                    lstTurnoCliente.Add(turnoCliente);
-                }
+                lstTurnoCliente = PreencherTurnoCliente(lstTurno, lstTurnoCliente);
 
                 lstTurno.Clear();
 
@@ -125,14 +148,10 @@ namespace SOTRE.Web
 
             if (chkMadrugada.Checked)
             {
+
                 lstTurno = queryTurno.Where(w => w.cd_horaInicial >= 0 && w.cd_horaInicial <= 5).ToList<Turno>();
 
-                foreach (Turno item in lstTurno)
-                {
-                    turnoCliente.cd_turno = item.id_turno;
-
-                    lstTurnoCliente.Add(turnoCliente);
-                }
+                lstTurnoCliente = PreencherTurnoCliente(lstTurno, lstTurnoCliente);
 
                 lstTurno.Clear();
             }
@@ -228,6 +247,22 @@ namespace SOTRE.Web
             }
 
             Response.Redirect("PesqCliente.aspx");
+        }
+
+        private List<Turno_Cliente> PreencherTurnoCliente(List<Turno> lstTurno, List<Turno_Cliente> lstTurnoCliente)
+        {
+            Turno_Cliente turnoCliente = null;
+
+            foreach (Turno item in lstTurno)
+            {
+                turnoCliente = new Turno_Cliente();
+
+                turnoCliente.cd_turno = item.id_turno;
+
+                lstTurnoCliente.Add(turnoCliente);
+            }
+
+            return lstTurnoCliente;
         }
 
         private string FormataStringEndereco()
