@@ -14,20 +14,106 @@ namespace SOTRE.Domain.BLL
         ViagemBLL viagemBLL = new ViagemBLL();
         PedidoBLL pedidoBLL = new PedidoBLL();
 
+        #region Mutação
+
+        public List<Individuo> GerenciarMutacao(List<Individuo> populacao)
+        {
+            Random random = new Random();
+
+            int percent = Convert.ToInt32(populacao.Count * 0.05);
+
+            for (int i = 0; i < percent; i++)
+            {
+                Mutacao(populacao[random.Next(0, (populacao.Count - 1))]);
+            }
+
+            return populacao;
+
+        }
+
+        public void Mutacao(Individuo individuo)
+        {
+            Random random = new Random();
+            int posicaoCromossomoA = random.Next(0,(individuo.Cromossomos.Count - 1));
+            int posicaoPedidoA = random.Next(0, (individuo.Cromossomos[posicaoCromossomoA].lstPedido.Count - 1));
+
+            int posicaoCromossomoB = random.Next(0, (individuo.Cromossomos.Count - 1));
+            int posicaoPedidoB = random.Next(0, (individuo.Cromossomos[posicaoCromossomoB].lstPedido.Count - 1));
+
+            Pedido a = individuo.Cromossomos[posicaoCromossomoA].lstPedido[posicaoPedidoA];
+            Pedido b = individuo.Cromossomos[posicaoCromossomoB].lstPedido[posicaoPedidoB];
+
+            individuo.Cromossomos[posicaoCromossomoA].lstPedido[posicaoPedidoA] = b;
+            individuo.Cromossomos[posicaoCromossomoB].lstPedido[posicaoPedidoB] = a;
+        }
+
+        #endregion
+
+
         #region Cruzamento
 
-        //public List<Individuo> GerenciarCruzamentos(List<Individuo> populacao, List<Individuo> novaPopulacao)
-        //{
-        //    Random random = new Random();
-        //    int tamanhoPopulacao = populacao.Count + novaPopulacao.Count;
+        public List<Individuo> GerenciarCruzamentos(List<Individuo> populacao, List<Individuo> novaPopulacao)
+        {
+            Random random = new Random();
+            int tamanhoPopulacao = populacao.Count + novaPopulacao.Count;
+            Individuo primeiroEscolhido = null;
+            Individuo segundoEscolhido = null;
+            List<Individuo> retornoCruzamento = null;
 
 
-        //}
+            while (novaPopulacao.Count < tamanhoPopulacao)
+            {
+                primeiroEscolhido = new Individuo();
+                segundoEscolhido = new Individuo();
+                retornoCruzamento = new List<Individuo>();
 
-        //public List<Individuo> Cruzamentos(Individuo individuo1, Individuo individuo2)
-        //{
+                primeiroEscolhido = populacao[random.Next(0, (populacao.Count - 1))];
+                segundoEscolhido = populacao[random.Next(0, (populacao.Count - 1))];
 
-        //}
+                retornoCruzamento = Cruzamentos(primeiroEscolhido, segundoEscolhido);
+
+                foreach (Individuo objIndividuo in retornoCruzamento)
+                {
+                    novaPopulacao.Add(objIndividuo);
+                }
+
+                populacao.Remove(primeiroEscolhido);
+                populacao.Remove(segundoEscolhido);
+            }
+
+            return novaPopulacao;
+        }
+
+        public List<Individuo> Cruzamentos(Individuo individuo1, Individuo individuo2)
+        {
+            Individuo primeiroAux = new Individuo();
+            Individuo segundoAux = new Individuo();
+            List<Individuo> lstRetorno = new List<Individuo>();
+
+            individuo1.Cromossomos = individuo1.Cromossomos.OrderBy(o => o.Veiculo.id_veiculo).ToList<Gene>();
+            individuo2.Cromossomos = individuo2.Cromossomos.OrderBy(o => o.Veiculo.id_veiculo).ToList<Gene>();
+
+            int tamanhoPedeço = individuo1.Cromossomos.Count / 2;
+
+            for (int i = 0; i < individuo1.Cromossomos.Count; i++)
+            {
+                if (i < tamanhoPedeço)
+                {
+                    primeiroAux.Cromossomos.Add(individuo1.Cromossomos[i]);
+                    segundoAux.Cromossomos.Add(individuo2.Cromossomos[i]);
+                }
+                else
+                {
+                    segundoAux.Cromossomos.Add(individuo1.Cromossomos[i]);
+                    primeiroAux.Cromossomos.Add(individuo2.Cromossomos[i]);
+                }
+            }
+
+            lstRetorno.Add(primeiroAux);
+            lstRetorno.Add(segundoAux);
+
+            return lstRetorno;
+        }
 
         #endregion
 
@@ -40,7 +126,7 @@ namespace SOTRE.Domain.BLL
             int contadorLista = 0;
 
             populacao = populacao.OrderBy(o => o.nota).ToList<Individuo>();
-             
+
             List<Individuo> novaPopupalacao = new List<Individuo>();
 
             Individuo individuo = null;

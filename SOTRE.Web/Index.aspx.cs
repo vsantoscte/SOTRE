@@ -34,6 +34,18 @@ namespace SOTRE.Web
             {
                 lst.Remove(item);
             }
+
+            List<Individuo> lstCR = alg.GerenciarCruzamentos(lst, novaLista);
+
+            lstCR = alg.GerenciarMutacao(lstCR);
+
+            foreach (Individuo item in lstCR)
+            {
+                alg.AvaliarQualidadeIndividuo(item);
+            }
+
+            lstCR = lstCR.OrderBy(o => o.nota).ToList<Individuo>();
+
         }
     }
 }
